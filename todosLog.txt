@@ -1,0 +1,162 @@
+Warni - 15-06-2015 15:36:04 - Invalid AES key length: 13 bytes
+Warni - 15-06-2015 15:38:09 - Wrong IV length: must be 16 bytes long
+Warni - 15-06-2015 15:43:17 - Input length must be multiple of 16 when decrypting with padded cipherWarni - 15-06-2015 15:49:40 - null
+Warni - 15-06-2015 15:54:01 - null
+Warni - 15-06-2015 16:10:09 - Error on line 4 of document file:/C:/Users/jhone/Documents/NetBeansProjects/DesktopBkpSGBWEB/configPass.xml: A referência do caractere "&#
+Warni - 15-06-2015 16:10:09 - null
+Warni - 15-06-2015 16:29:44 - Input length must be multiple of 16 when decrypting with padded cipher
+Warni - 15-06-2015 16:39:14 - Parameters missing
+error - 15-06-2015 17:01:34 - Parameters missing
+error - 15-06-2015 17:03:11 - Parameters missing
+error - 15-06-2015 17:08:11 - Parameters missing
+error - 15-06-2015 17:08:17 - Parameters missing
+error - 15-06-2015 17:09:56 - Parameters missing
+error - 15-06-2015 17:11:31 - Input length must be multiple of 16 when decrypting with padded cipher
+error - 15-06-2015 17:16:07 - Input length must be multiple of 16 when decrypting with padded cipher
+error - 15-06-2015 18:02:04 - FTP response 421 received.  Server closed connection.
+error - 15-06-2015 18:02:04 - Connection closed without indication.
+error - 15-06-2015 18:02:04 - Connection closed without indication.
+error - 15-06-2015 18:02:04 - Connection closed without indication.
+error - 15-06-2015 18:02:04 - Connection closed without indication.
+error - 15-06-2015 18:02:04 - Connection closed without indication.
+error - 15-06-2015 18:02:04 - Connection closed without indication.
+error - 15-06-2015 18:10:25 - Connection timed out: connect
+error - 15-06-2015 18:11:12 - Connection timed out: connect
+error - 15-06-2015 18:11:38 - Connection timed out: connect
+error - 15-06-2015 18:11:44 - Permission denied: recv failed
+error - 15-06-2015 18:11:53 - Permission denied: recv failed
+error - 15-06-2015 18:12:42 - Permission denied: recv failed
+error - 15-06-2015 18:13:18 - Permission denied: recv failed
+error - 15-06-2015 18:13:28 - Permission denied: recv failed
+error - 15-06-2015 18:15:20 - Permission denied: recv failed
+error - 15-06-2015 18:15:30 - Permission denied: recv failed
+error - 15-06-2015 18:15:35 - Software caused connection abort: socket write error
+error - 15-06-2015 18:15:46 - Permission denied: recv failed
+error - 15-06-2015 18:15:52 - Software caused connection abort: socket write error
+error - 15-06-2015 18:16:00 - Permission denied: recv failed
+error - 16-06-2015 10:51:54 - Read timed out
+error - 16-06-2015 10:51:54 - Connection reset by peer: socket write error
+error - 16-06-2015 10:51:54 - Connection reset by peer: socket write error
+error - 16-06-2015 10:51:54 - Connection reset by peer: socket write error
+error - 16-06-2015 10:52:47 - Read timed out
+error - 16-06-2015 10:52:47 - Connection reset by peer: socket write error
+error - 16-06-2015 10:52:47 - Connection reset by peer: socket write error
+error - 16-06-2015 10:52:47 - Connection reset by peer: socket write error
+error - 16-06-2015 11:01:49 - Could not parse passive host information.
+Server Reply: 500 CHMOD not understood
+error - 16-06-2015 11:02:24 - Read timed out
+error - 16-06-2015 11:02:24 - Connection reset by peer: socket write error
+error - 16-06-2015 11:02:24 - Connection reset by peer: socket write error
+error - 16-06-2015 11:02:24 - Connection reset by peer: socket write error
+error - 16-06-2015 11:02:24 - Connection reset by peer: socket write error
+error - 16-06-2015 11:02:24 - Connection reset by peer: socket write error
+error - 16-06-2015 11:02:24 - Connection reset by peer: socket write error
+error - 16-06-2015 11:04:28 - Read timed out
+error - 16-06-2015 11:04:28 - Connection reset by peer: socket write error
+error - 16-06-2015 11:04:28 - Connection reset by peer: socket write error
+error - 16-06-2015 11:04:28 - Connection reset by peer: socket write error
+error - 16-06-2015 11:06:08 - Read timed out
+error - 16-06-2015 11:06:08 - Connection reset by peer: socket write error
+error - 16-06-2015 11:06:08 - Connection reset by peer: socket write error
+error - 16-06-2015 11:06:08 - Connection reset by peer: socket write error
+error - 16-06-2015 11:31:33 - Connection timed out: connect
+error - 16-06-2015 13:55:35 - Connection timed out: connect
+error - 16-06-2015 15:29:52 - Connection timed out: connect
+error - 16-06-2015 15:30:20 - Connection timed out: connect
+error - 16-06-2015 22:34:05 - Connection is not open
+error - 16-06-2015 22:34:17 - Connection is not open
+error - 16-06-2015 22:34:18 - Connection is not open
+error - 16-06-2015 22:34:39 - Connection is not open
+error - 16-06-2015 22:34:40 - Connection is not open
+error - 16-06-2015 22:34:41 - Connection is not open
+error - 16-06-2015 22:34:41 - Connection is not open
+error - 16-06-2015 22:34:41 - Connection is not open
+error - 16-06-2015 22:34:41 - Connection is not open
+error - 16-06-2015 22:34:41 - Connection is not open
+error - 16-06-2015 22:35:37 - Connection is not open
+error - 16-06-2015 22:37:40 - Connection is not open
+error - 16-06-2015 22:37:46 - Connection is not open
+error - 16-06-2015 22:37:47 - Connection is not open
+error - 16-06-2015 22:37:48 - Connection is not open
+error - 16-06-2015 22:37:49 - Connection is not open
+error - 16-06-2015 22:37:50 - Connection is not open
+error - 16-06-2015 22:37:51 - Connection is not open
+error - 16-06-2015 22:37:53 - Connection is not open
+error - 16-06-2015 22:37:53 - Connection is not open
+error - 16-06-2015 22:37:54 - Connection is not open
+error - 16-06-2015 22:37:55 - Connection is not open
+error - 16-06-2015 22:38:25 - Connection is not open
+error - 16-06-2015 22:38:26 - Connection is not open
+error - 16-06-2015 22:38:37 - Connection is not open
+error - 16-06-2015 22:38:58 - Connection is not open
+error - 16-06-2015 22:39:09 - Connection is not open
+error - 16-06-2015 22:39:23 - Connection is not open
+error - 17-06-2015 16:43:56 - ftp.xpg.com.br
+error - 17-06-2015 16:44:02 - ftp.xpg.com.br
+error - 17-06-2015 16:44:03 - ftp.xpg.com.br
+error - 17-06-2015 16:44:04 - ftp.xpg.com.br
+error - 17-06-2015 16:44:05 - ftp.xpg.com.br
+error - 17-06-2015 16:44:05 - ftp.xpg.com.br
+error - 17-06-2015 16:44:06 - ftp.xpg.com.br
+error - 17-06-2015 16:44:06 - ftp.xpg.com.br
+error - 17-06-2015 16:44:06 - ftp.xpg.com.br
+error - 17-06-2015 16:44:06 - Connection unexpectedly closed.
+error - 17-06-2015 16:44:07 - Socket closed
+error - 17-06-2015 16:44:07 - Socket closed
+error - 17-06-2015 16:44:07 - Socket closed
+error - 17-06-2015 16:44:08 - socket closed
+error - 17-06-2015 16:44:44 - Read timed out
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:44 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:45 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:45 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:46 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:48 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:49 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:57 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:57 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:59 - Connection reset by peer: socket write error
+error - 17-06-2015 16:44:59 - Connection reset by peer: socket write error
+error - 17-06-2015 16:45:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:45:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:45:01 - Connection reset by peer: socket write error
+error - 17-06-2015 16:45:01 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:00 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:04 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:05 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:06 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:08 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:20 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:21 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:23 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:27 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:34 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:35 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:36 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:38 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:39 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:43 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:46 - Connection reset by peer: socket write error
+error - 17-06-2015 16:54:50 - Connection reset by peer: socket write error
+error - 17-06-2015 17:21:53 - ftp.xpg.com.br
+error - 17-06-2015 17:22:01 - ftp.xpg.com.br
+error - 15-07-2015 14:57:52 - Tempo esgotado para conexão
+error - 04-08-2015 17:52:43 - ftp.xpg.com.br: unknown error
+error - 04-08-2015 17:52:46 - ftp.xpg.com.br
+error - 04-08-2015 22:39:22 - ftp.xpg.com.br: unknown error

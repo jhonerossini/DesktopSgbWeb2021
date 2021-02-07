@@ -1,0 +1,6 @@
+|------------------------------------------------------------------------------------|
+Nome Arquivo: databkpagendado
+Local do Arquivo: local
+Destino do Arquivo: destino
+Tamanho do Arquivo: 100
+Data e hora da criação: diaHora

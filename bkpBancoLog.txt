@@ -1,0 +1,253 @@
+Error - 18-05-2015 10:49:15 - Access denied for user 'root'@'localhost' (using password: YES)
+Error - 18-05-2015 10:49:15 - null
+Error - 18-05-2015 10:49:16 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema n�o pode encontrar o arquivo especificado
+Infor - 18-05-2015 10:49:16 - N�o foi possivel criar o Backup!
+Error - 18-05-2015 11:12:51 - Access denied for user 'root'@'localhost' (using password: YES)
+Error - 18-05-2015 11:12:51 - null
+Error - 18-05-2015 11:12:51 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema não pode encontrar o arquivo especificado
+Infor - 18-05-2015 11:12:51 - Não foi possivel criar o Backup!
+Error - 18-05-2015 11:13:41 - Access denied for user 'root'@'localhost' (using password: YES)
+Error - 18-05-2015 11:13:41 - null
+Error - 18-05-2015 11:13:41 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema não pode encontrar o arquivo especificado
+Infor - 18-05-2015 11:13:41 - Não foi possivel criar o Backup!
+Error - 18-05-2015 11:28:41 - Access denied for user 'root'@'localhost' (using password: YES)
+Error - 18-05-2015 11:28:41 - null
+Error - 18-05-2015 11:28:41 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema não pode encontrar o arquivo especificado
+Infor - 18-05-2015 11:28:41 - Não foi possivel criar o Backup!
+Infor - 18-05-2015 11:31:25 - Backup realizado com sucesso!
+Infor - 18-05-2015 11:31:25 - Não foi possivel criar o Backup!
+Error - 18-05-2015 14:45:29 - Access denied for user 'root'@'localhost' (using password: YES)
+Error - 18-05-2015 14:45:29 - null
+Error - 18-05-2015 14:45:29 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema não pode encontrar o arquivo especificado
+Infor - 18-05-2015 14:45:29 - Não foi possivel criar o Backup!
+Infor - 18-05-2015 15:31:08 - Vereficação de backup parada
+Infor - 18-05-2015 15:35:11 - Vereficação de backup parada
+Infor - 18-05-2015 15:35:17 - Vereficação de backup parada
+Infor - 18-05-2015 15:35:54 - Vereficação de backup parada
+Error - 18-05-2015 15:39:59 - null
+Infor - 18-05-2015 15:39:59 - Vereficação de backup parada
+Error - 18-05-2015 15:51:27 - null
+Infor - 18-05-2015 15:51:27 - Verefica��o de backup parada
+Error - 18-05-2015 15:51:33 - null
+Infor - 18-05-2015 15:51:33 - Verefica��o de backup parada
+Error - 18-05-2015 15:51:36 - null
+Infor - 18-05-2015 15:51:36 - Verefica��o de backup parada
+Infor - 18-05-2015 15:55:43 - Backup realizado com sucesso!
+Infor - 18-05-2015 15:55:43 - N�o foi possivel criar o Backup!
+Error - 18-05-2015 16:22:48 - null
+Infor - 18-05-2015 16:22:48 - Vereficação de backup parada
+Infor - 18-05-2015 16:23:19 - Vereficação de backup parada
+Error - 18-05-2015 16:23:27 - null
+Infor - 18-05-2015 16:23:27 - Vereficação de backup parada
+Error - 18-05-2015 16:23:29 - null
+Infor - 18-05-2015 16:23:29 - Vereficação de backup parada
+Infor - 18-05-2015 16:40:54 - Vereficação de backup parada
+Infor - 18-05-2015 17:01:37 - Backup realizado com sucesso!
+Infor - 18-05-2015 17:01:37 - Backup realizado com sucesso!
+Infor - 18-05-2015 17:01:39 - Backup realizado com sucesso!
+Infor - 18-05-2015 17:01:56 - Backup realizado com sucesso!
+Error - 18-05-2015 17:02:29 - null
+Infor - 18-05-2015 17:02:29 - Vereficação de backup parada
+Error - 18-05-2015 17:02:38 - null
+Infor - 18-05-2015 17:02:38 - Vereficação de backup parada
+Error - 18-05-2015 17:02:40 - null
+Infor - 18-05-2015 17:02:40 - Vereficação de backup parada
+Error - 18-05-2015 17:02:42 - null
+Infor - 18-05-2015 17:02:42 - Vereficação de backup parada
+Error - 18-05-2015 17:08:01 - null
+Infor - 18-05-2015 17:08:01 - Vereficação de backup parada
+Error - 18-05-2015 17:08:04 - null
+Infor - 18-05-2015 17:08:04 - Vereficação de backup parada
+Infor - 18-05-2015 17:08:08 - Vereficação de backup parada
+Error - 18-05-2015 17:08:10 - null
+Infor - 18-05-2015 17:08:10 - Vereficação de backup parada
+Error - 18-05-2015 17:08:16 - null
+Infor - 18-05-2015 17:08:16 - Vereficação de backup parada
+Infor - 18-05-2015 17:08:21 - Vereficação de backup parada
+Error - 18-05-2015 17:08:26 - null
+Infor - 18-05-2015 17:08:26 - Vereficação de backup parada
+Infor - 18-05-2015 17:08:28 - Vereficação de backup parada
+Infor - 18-05-2015 17:09:12 - Vereficação de backup parada
+Infor - 18-05-2015 17:38:41 - Backup realizado com sucesso!
+Error - 18-05-2015 17:39:21 - null
+Infor - 18-05-2015 17:39:21 - Vereficação de backup parada
+Infor - 18-05-2015 17:39:26 - Vereficação de backup parada
+Error - 18-05-2015 17:45:49 - Unknown database 'bkpsgbweb.sql'
+Error - 18-05-2015 17:45:49 - null
+Error - 18-05-2015 17:45:49 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema não pode encontrar o arquivo especificado
+Infor - 18-05-2015 17:45:49 - Não foi possivel criar o Backup!
+Error - 18-05-2015 17:48:29 - Unknown database 'bkpsgbweb'
+Error - 18-05-2015 17:48:29 - null
+Error - 18-05-2015 17:48:29 - Cannot run program "bin\mysqldump": CreateProcess error=2, O sistema não pode encontrar o arquivo especificado
+Infor - 18-05-2015 17:48:29 - Não foi possivel criar o Backup!
+Infor - 18-05-2015 20:16:44 - Backup realizado com sucesso!
+Infor - 18-05-2015 20:23:54 - Backup realizado com sucesso!
+Infor - 18-05-2015 20:57:35 - Vereficação de backup parada
+Infor - 18-05-2015 20:57:39 - Vereficação de backup parada
+Infor - 18-05-2015 21:04:51 - Vereficação de backup parada
+Infor - 18-05-2015 21:08:20 - Vereficação de backup parada
+Infor - 18-05-2015 21:08:31 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:11 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:17 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:26 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:31 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:32 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:32 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:32 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:43 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:45 - Vereficação de backup parada
+Infor - 18-05-2015 21:09:45 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:09 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:18 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:37 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:46 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:48 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:49 - Vereficação de backup parada
+Infor - 18-05-2015 21:10:50 - Vereficação de backup parada
+Infor - 18-05-2015 21:13:25 - Vereficação de backup parada
+Infor - 18-05-2015 21:17:43 - Vereficação de backup parada
+Infor - 18-05-2015 21:17:51 - Vereficação de backup parada
+Infor - 18-05-2015 21:19:03 - Vereficação de backup parada
+Infor - 18-05-2015 21:19:35 - Vereficação de backup parada
+Infor - 18-05-2015 21:36:41 - Vereficação de backup parada
+Infor - 18-05-2015 21:36:53 - Vereficação de backup parada
+Infor - 18-05-2015 21:37:13 - Vereficação de backup parada
+Infor - 18-05-2015 21:46:07 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:09 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:10 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:12 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:12 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:14 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:15 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:16 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:17 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:18 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:19 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:20 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:21 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:22 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:23 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:24 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:25 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:26 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:27 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:28 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:29 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:29 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:32 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:34 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:36 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:37 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:39 - Verefica��o de backup parada
+Infor - 18-05-2015 21:46:40 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:21 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:23 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:26 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:28 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:30 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:32 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:33 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:34 - Verefica��o de backup parada
+Infor - 19-05-2015 08:21:35 - Verefica��o de backup parada
+Infor - 19-05-2015 08:27:47 - Vereficação de backup parada
+Infor - 19-05-2015 08:27:47 - Vereficação de backup parada
+Infor - 19-05-2015 09:00:09 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:31 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:34 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:36 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:39 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:41 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:42 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:44 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:51 - Vereficação de backup parada
+Infor - 19-05-2015 09:01:59 - Vereficação de backup parada
+Infor - 19-05-2015 09:02:02 - Vereficação de backup parada
+Infor - 19-05-2015 09:02:04 - Vereficação de backup parada
+Infor - 19-05-2015 09:14:51 - Vereficação de backup parada
+Infor - 19-05-2015 09:14:53 - Vereficação de backup parada
+Infor - 19-05-2015 09:14:59 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:04 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:08 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:10 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:12 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:15 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:18 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:20 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:31 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:38 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:43 - Vereficação de backup parada
+Infor - 19-05-2015 09:15:49 - Vereficação de backup parada
+Infor - 19-05-2015 09:16:51 - Vereficação de backup parada
+Infor - 26-05-2015 01:27:15 - Vereficação de backup parada
+Infor - 26-05-2015 01:28:42 - Vereficação de backup parada
+Infor - 26-05-2015 01:28:49 - Vereficação de backup parada
+Infor - 26-05-2015 01:28:53 - Vereficação de backup parada
+Infor - 26-05-2015 01:32:26 - Vereficação de backup parada
+Infor - 26-05-2015 01:32:34 - Vereficação de backup parada
+Infor - 26-05-2015 01:32:37 - Vereficação de backup parada
+Infor - 26-05-2015 01:34:01 - Vereficação de backup parada
+Infor - 26-05-2015 01:34:03 - Vereficação de backup parada
+Infor - 26-05-2015 01:34:05 - Vereficação de backup parada
+Infor - 26-05-2015 01:38:54 - Backup realizado com sucesso!
+Infor - 26-05-2015 22:39:12 - Vereficação de backup parada
+Infor - 26-05-2015 22:39:22 - Vereficação de backup parada
+Infor - 26-05-2015 22:39:24 - Vereficação de backup parada
+Infor - 26-05-2015 22:39:26 - Vereficação de backup parada
+Infor - 26-05-2015 22:40:22 - Vereficação de backup parada
+Infor - 26-05-2015 22:40:23 - Vereficação de backup parada
+Infor - 26-05-2015 22:40:26 - Vereficação de backup parada
+Infor - 26-05-2015 22:40:27 - Vereficação de backup parada
+Infor - 27-05-2015 16:28:28 - Vereficação de backup parada
+Infor - 27-05-2015 16:28:29 - Vereficação de backup parada
+Error - 05-08-2015 00:16:57 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+Error - 05-08-2015 00:16:57 - null
+Error - 05-08-2015 00:16:57 - Cannot run program "bin\mysqldump": error=2, Arquivo ou diretório não encontrado
+Infor - 05-08-2015 00:16:57 - Não foi possivel criar o Backup!
+Infor - 06-08-2015 15:30:28 - Vereficação de backup parada
+Error - 18-03-2016 14:07:35 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 14:48:35 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 14:48:37 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:07:40 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:15:39 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:41:48 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:41:55 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:17 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:27 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:28 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:30 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:31 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:31 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:32 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:33 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:34 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:35 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:36 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:36 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:37 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:38 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:39 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:40 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:41 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:42 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:43 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:44 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:45 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:46 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:47 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:48 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:49 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:50 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:51 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:52 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:54 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:56 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:57 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:58 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:42:59 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:43:00 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:43:02 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:43:04 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:43:05 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!
+Error - 22-04-2016 15:48:55 - ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!

@@ -1,0 +1,703 @@
+Error - 21-05-2015 21:34:59 - Connection reset
+Error - 21-05-2015 21:45:00 - Connection reset
+Error - 21-05-2015 22:30:11 - Connection reset
+Error - 21-05-2015 22:39:56 - Connection reset
+Error - 21-05-2015 23:03:04 - Connection reset
+Error - 22-05-2015 08:11:17 - Socket closed
+Error - 22-05-2015 08:11:17 - socket closed
+Error - 22-05-2015 08:11:46 - Socket closed
+Error - 22-05-2015 08:12:22 - Socket closed
+Error - 22-05-2015 08:12:22 - Socket closed
+Error - 22-05-2015 08:12:23 - Socket closed
+Error - 22-05-2015 08:12:29 - Socket closed
+Error - 22-05-2015 08:12:29 - socket closed
+Error - 22-05-2015 08:12:32 - Socket closed
+Error - 22-05-2015 08:37:26 - Connection reset
+Error - 22-05-2015 08:40:25 - Socket closed
+Error - 22-05-2015 08:40:25 - socket closed
+Error - 22-05-2015 08:43:56 - Socket closed
+Error - 22-05-2015 08:43:56 - socket closed
+Error - 22-05-2015 08:44:05 - Socket closed
+Error - 22-05-2015 08:44:05 - Socket closed
+Error - 22-05-2015 09:10:13 - Socket closed
+Error - 22-05-2015 09:10:13 - socket closed
+Error - 22-05-2015 09:10:33 - Socket closed
+Error - 22-05-2015 09:10:33 - Socket closed
+Error - 22-05-2015 09:11:03 - Socket closed
+Error - 22-05-2015 09:11:03 - Socket closed
+Error - 22-05-2015 09:15:11 - Socket closed
+Error - 22-05-2015 09:15:11 - socket closed
+Error - 22-05-2015 09:15:21 - Socket closed
+Error - 22-05-2015 09:15:21 - Socket closed
+Error - 22-05-2015 09:15:21 - Socket closed
+Error - 22-05-2015 09:15:21 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:22 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:23 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:24 - Socket closed
+Error - 22-05-2015 09:15:33 - socket closed
+Error - 22-05-2015 15:14:33 - Socket closed
+Error - 22-05-2015 15:14:33 - socket closed
+Error - 22-05-2015 15:29:52 - Socket closed
+Error - 22-05-2015 15:29:52 - socket closed
+Error - 22-05-2015 15:55:16 - Socket closed
+Error - 22-05-2015 15:55:16 - socket closed
+Error - 22-05-2015 15:56:45 - Socket closed
+Error - 22-05-2015 15:56:45 - socket closed
+Error - 22-05-2015 15:58:34 - socket closed
+Error - 22-05-2015 16:05:15 - socket closed
+Error - 22-05-2015 16:06:12 - socket closed
+Error - 22-05-2015 16:07:05 - socket closed
+Error - 22-05-2015 16:14:18 - socket closed
+Error - 22-05-2015 16:16:12 - socket closed
+Error - 22-05-2015 16:16:29 - socket closed
+Error - 22-05-2015 16:17:20 - socket closed
+Error - 22-05-2015 16:17:50 - socket closed
+Error - 22-05-2015 16:18:18 - socket closed
+Error - 22-05-2015 16:19:18 - socket closed
+Error - 22-05-2015 16:44:05 - Connection reset
+Error - 22-05-2015 16:44:52 - Connection reset
+Error - 22-05-2015 16:48:43 - Connection reset
+Error - 22-05-2015 16:58:14 - Connection reset
+Error - 28-05-2015 18:25:01 - Endereço já em uso
+Error - 28-05-2015 18:25:01 - Endereço já em uso
+Error - 28-05-2015 18:25:02 - Endereço já em uso
+Error - 28-05-2015 18:25:02 - Endereço já em uso
+Error - 28-05-2015 18:25:02 - Endereço já em uso
+Error - 28-05-2015 18:25:02 - Endereço já em uso
+Error - 28-05-2015 18:25:03 - Endereço já em uso
+Error - 28-05-2015 18:25:03 - Endereço já em uso
+Error - 28-05-2015 18:25:03 - Endereço já em uso
+Error - 28-05-2015 18:25:03 - Endereço já em uso
+Error - 28-05-2015 18:25:04 - Endereço já em uso
+Error - 28-05-2015 18:25:04 - Endereço já em uso
+Error - 28-05-2015 18:25:04 - Endereço já em uso
+Error - 28-05-2015 18:25:24 - Endereço já em uso
+Error - 28-05-2015 18:25:30 - Endereço já em uso
+Error - 29-05-2015 12:59:08 - mark/reset not supported
+Error - 01-06-2015 17:58:13 - Endereço já em uso
+Error - 01-06-2015 17:58:56 - Endereço já em uso
+Error - 01-06-2015 17:58:57 - Endereço já em uso
+Error - 01-06-2015 17:58:57 - Endereço já em uso
+Error - 01-06-2015 17:58:57 - Endereço já em uso
+Error - 01-06-2015 17:58:58 - Endereço já em uso
+Error - 01-06-2015 17:58:58 - Endereço já em uso
+Error - 01-06-2015 18:02:03 - Connection reset
+Error - 01-06-2015 18:07:02 - Connection reset
+Error - 01-06-2015 18:08:08 - Connection reset
+Error - 01-06-2015 18:08:30 - Connection reset
+Error - 01-06-2015 18:12:55 - Connection reset
+Error - 01-06-2015 20:10:53 - Connection reset
+Error - 01-06-2015 20:14:18 - Connection reset
+Error - 01-06-2015 20:16:20 - Connection reset
+Error - 01-06-2015 20:26:54 - Connection reset
+Error - 01-06-2015 20:27:25 - Connection reset
+Error - 01-06-2015 20:28:50 - Connection reset
+Error - 01-06-2015 21:05:43 - Connection reset
+Error - 01-06-2015 21:17:41 - Connection reset
+Error - 02-06-2015 14:03:01 - Connection reset
+Error - 02-06-2015 14:03:58 - Connection reset
+Error - 02-06-2015 14:32:35 - Connection reset
+Error - 02-06-2015 14:38:32 - Connection reset
+Error - 02-06-2015 14:40:50 - Connection reset
+Error - 02-06-2015 14:47:07 - Connection reset
+Error - 02-06-2015 14:48:38 - Connection reset
+Error - 03-06-2015 22:06:25 - null
+Error - 03-06-2015 22:08:58 - null
+Error - 06-06-2015 18:17:37 - Endereço já em uso
+Error - 06-06-2015 18:19:19 - null
+Error - 06-06-2015 18:20:43 - null
+Error - 06-06-2015 18:34:51 - null
+Error - 06-06-2015 18:36:54 - null
+Error - 06-06-2015 18:37:51 - null
+Error - 06-06-2015 18:39:24 - null
+Error - 06-06-2015 18:45:10 - null
+Error - 06-06-2015 18:45:43 - null
+Error - 06-06-2015 18:47:14 - null
+Error - 06-06-2015 22:37:39 - null
+Error - 06-06-2015 22:37:39 - null
+Error - 06-06-2015 22:44:23 - null
+Error - 06-06-2015 22:44:23 - null
+Error - 06-06-2015 23:00:36 - null
+Error - 06-06-2015 23:16:47 - Endereço já em uso
+Error - 06-06-2015 23:18:12 - Endereço já em uso
+Error - 06-06-2015 23:19:30 - null
+Error - 06-06-2015 23:34:47 - null
+Error - 06-06-2015 23:38:51 - Pipe quebrado
+Error - 06-06-2015 23:38:52 - null
+Error - 06-06-2015 23:54:59 - null
+Error - 07-06-2015 00:05:35 - Connection reset
+Error - 07-06-2015 00:06:46 - Connection reset
+Error - 07-06-2015 00:09:52 - Connection reset
+Error - 07-06-2015 00:17:36 - Pipe quebrado
+Error - 07-06-2015 00:17:36 - null
+Error - 07-06-2015 00:19:53 - null
+Error - 07-06-2015 00:21:13 - null
+Error - 07-06-2015 00:21:33 - null
+Error - 07-06-2015 00:22:29 - null
+Error - 07-06-2015 00:22:44 - null
+Error - 07-06-2015 00:24:05 - null
+Error - 07-06-2015 00:27:15 - Connection reset
+Error - 07-06-2015 00:30:01 - null
+Error - 07-06-2015 00:32:03 - null
+Error - 07-06-2015 00:34:41 - null
+Error - 07-06-2015 00:50:42 - null
+Error - 07-06-2015 00:52:54 - null
+Error - 07-06-2015 00:57:38 - null
+Error - 07-06-2015 01:14:30 - null
+Error - 07-06-2015 01:16:42 - null
+Error - 07-06-2015 01:19:53 - null
+Error - 07-06-2015 01:20:14 - null
+Error - 09-06-2015 00:59:17 - null
+Error - 09-06-2015 22:42:39 - null
+Error - 09-06-2015 22:42:51 - null
+Error - 09-06-2015 22:43:24 - null
+Error - 18-06-2015 20:04:13 - Connection reset
+Error - 19-06-2015 18:36:56 - null
+Error - 19-06-2015 18:37:05 - null
+Error - 19-06-2015 18:41:26 - null
+Error - 19-06-2015 18:47:04 - null
+Error - 19-06-2015 19:12:40 - null
+Error - 19-06-2015 20:19:30 - null
+Error - 19-06-2015 22:33:41 - null
+Error - 19-06-2015 22:36:20 - Connection reset
+Error - 19-06-2015 22:3619-06-2015 22:36:20 - Connection reset
+Error - 19-06-2015 22:36:20 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 19-06-2015 22:36:20 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 19-06-2015 19-06-2015 22:36:20 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 19-06-2015 22:36:20 - Connection reset
+Connection reset
+Error - 19-06-2015 23:03:26 - Address already in use: JVM_Bind
+Error - 19-06-2015 23:15:33 - Connection reset
+Error - 19-06-2015 23:28:51 - Connection reset
+Error - 19-06-2015 23:44:54 - null
+Error - 19-06-2015 23:45:11 - Connection reset
+Error - 19-06-2015 23:58:59 - Connection reset
+Error - 20-06-2015 00:08:56 - Connection reset
+Error - 20-06-2015 00:12:29 - Connection reset
+Error - 20-06-2015 00:33:59 - null
+Error - 20-06-2015 00:36:43 - null
+Error - 20-06-2015 00:46:47 - Connection reset
+Error - 20-06-2015 00:46:47 - Connection reset
+Error - 20-06-2015 00:53:05 - Connection reset
+Error - 20-06-2015 00:53:05 - Connection reset
+Error - 20-06-2015 02:48:33 - Error - 20-06-2015 02:48:33 - nullnull
+
+Error - 20-06-2015 02:52:27 - Connection reset
+Error - 22-06-2015 15:24:08 - null
+Error - 22-06-2015 15:24:08 - null
+Error - 22-06-2015 15:35:18 - null
+Error - 22-06-2015 15:37:01 - null
+Error - 22-06-2015 15:42:55 - Connection reset
+Error - 22-06-2015 15:42:55 - Connection reset
+Error - 22-06-2015 15:42:55 - Connection reset
+Error - 22-06-2015 15:42:55 - Connection reset
+Error - 22-06-2015 15:42:55 - Connection reset
+Error - 22-06-2015 15:42:55 - Connection reset
+Error - 22-06-2015 15:45:59 - Connection reset
+Error - 22-06-2015 15:47:50 - Address already in use: JVM_Bind
+Error - 22-06-2015 15:48:41 - Connection reset
+Error - 22-06-2015 15:48:41 - Connection reset
+Error - 22-06-2015 15:48:41 - Connection reset
+Connection reset
+Error - 22-06-2015 16:49:07 - null
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-201500:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 22-06-2015 17:00:27 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 22-06-2015 17:00:27 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 22-06-2015 17:00:27 - Connection reset
+Error - 22-06-2015 17:00:27 - Connection reset
+Connection reset
+Connection reset
+Unrecognized Windows Sockets error: 0: recv failedError - 22-06-2015 17:00:27 - 
+Connection reset
+Connection reset
+Error - 22-06-2015 17:37:11 - Unrecognized Windows Sockets error: 0: recv failed
+Error - 22-06-2015 17:37:11 - Connection reset
+Error - 22-06-2015 17:37:11 - Connection reset
+Error - 22-06-2015 17:37:11 - Connection reset
+Connection reset
+Error - 22-06-2015 17:37:11 - Connection reset
+Error - 22-06-2015 17:37:11 - Connection reset
+Error - 22-06-2015 18:16:00 - Software caused connection abort: recv failed
+Error - 22-06-2015 18:16:00 - Software caused connection abort: recv failed
+Error - 22-06-2015 18:16:00 - Software caused connection abort: recv failed
+Error - 22-06-2015 18:16:00 - Software caused connection abort: recv failed
+Error - 22-06-2015 18:16:00 - Software caused connection abort: recv failed
+Error - 22-06-2015 18:16:00 - Software caused connection abort: recv failed
+Error - 22-06-2015 20:10:08 - Connection reset
+Error - 22-06-2015 20:10:08 - Connection reset
+Error - 22-06-2015 20:10:08 - Connection reset
+Error - 22-06-2015 20:10:08 - Connection reset
+Error - 22-06-2015 20:10:08 - Connection reset
+Connection reset
+Error - 23-06-2015 00:27:47 - Connection reset
+Error - 23-06-2015 00:27:47 - Connection reset
+Error - 23-06-2015 00:27:47 - Connection reset
+Error - 23-06-2015 00:30:57 - Connection reset
+Error - 23-06-2015 00:30:57 - Connection reset
+Error - 27-06-2015 14:26:28 - null
+Error - 27-06-2015 14:26:28 - null
+Error - 27-06-2015 14:26:28 - null
+Error - 27-06-2015 14:29:40 - null
+Error - 27-06-2015 14:32:03 - null
+Error - 27-06-2015 14:35:50 - null
+Error - 27-06-2015 14:35:50 - Error - 27-06-2015 14:35:50 - null
+null
+Error - 27-06-2015 14:36:47 - null
+Error - 27-06-2015 14:47:08 - nullError - 27-06-2015 14:47:08 - Error - 27-06-2015 14:47:08 - 
+null
+Error - 27-06-2015 14:48:48 - null
+Error - 27-06-2015 14:50:33 - null
+Error - 27-06-2015 14:54:36 - null
+Error - 27-06-2015 14:57:16 - null
+Error - 27-06-2015 15:01:05 - null
+Error - 27-06-2015 15:02:59 - null
+Error - 27-06-2015 15:06:37 - null
+Error - 27-06-2015 15:10:08 - null
+Error - 27-06-2015 15:11:31 - null
+Error - 27-06-2015 15:14:59 - null
+Error - 27-06-2015 15:19:43 - null
+Error - 27-06-2015 15:21:58 - null
+Error - 27-06-2015 16:14:24 - null
+Error - 27-06-2015 16:33:05 - Endereço já em uso
+Error - 27-06-2015 16:44:57 - null
+Error - 27-06-2015 17:46:07 - null
+Error - 27-06-2015 17:51:10 - null
+Error - 27-06-2015 17:53:59 - null
+Error - 27-06-2015 18:10:34 - null
+Error - 27-06-2015 19:10:18 - null
+Error - 24-07-2015 17:20:05 - Endereço já em uso
+Error - 24-07-2015 17:24:46 - null
+Error - 24-07-2015 17:24:46 - null
+Error - 24-07-2015 22:47:33 - null
+Error - 24-07-2015 22:47:33 - null
+Error - 24-07-2015 22:47:33 - null
+Error - 24-07-2015 22:47:33 - null
+Error - 24-07-2015 22:47:33 - null
+null
+Error - 24-07-2015 23:18:32 - Endereço já em uso
+Error - 24-07-2015 23:59:10 - Endereço já em uso
+Error - 28-07-2015 22:10:58 - Endereço já em uso
+Error - 28-07-2015 22:11:07 - Endereço já em uso
+Error - 29-07-2015 16:19:17 - Endereço já em uso
+Error - 29-07-2015 16:19:24 - Endereço já em uso
+Error - 29-07-2015 16:28:41 - Error - 29-07-2015 16:28:41 - null
+
+Error - 29-07-2015 16:28:41 - Error - 29-07-2015 16:28:41 - nullnull
+
+Error - 30-07-2015 17:24:13 - null
+Error - 03-08-2015 15:34:03 - null
+Error - 03-08-2015 15:37:20 - null
+Error - 04-08-2015 00:20:21 - Endereço já em uso
+Infor - 07-08-2015 01:06:47 - Servidor iniciado com sucesso!
+Infor - 07-08-2015 01:07:24 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:08:14 - null
+Error - 07-08-2015 01:08:14 - Socket closed
+Infor - 07-08-2015 01:08:14 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:08:38 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:08:54 - nullError - 07-08-2015 01:08:54 - 
+Socket closed
+Infor - 07-08-2015 01:08:54 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:18:05 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:18:17 - null
+Error - 07-08-2015 01:18:17 - Socket closed
+Infor - 07-08-2015 01:18:17 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:18:19 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:18:24 - Socket closed
+Error - 07-08-2015 01:18:24 - null
+Infor - 07-08-2015 01:18:24 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:18:54 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:21:19 - null
+Error - 07-08-2015 01:21:19 - Socket closed
+Infor - 07-08-2015 01:21:19 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:21 - null
+Infor - 07-08-2015 01:21:21 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:22 - null
+Infor - 07-08-2015 01:21:22 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:23 - null
+Infor - 07-08-2015 01:21:23 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:23 - null
+Infor - 07-08-2015 01:21:23 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:23 - null
+Infor - 07-08-2015 01:21:23 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:23 - null
+Infor - 07-08-2015 01:21:23 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:24 - null
+Infor - 07-08-2015 01:21:24 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:24 - null
+Infor - 07-08-2015 01:21:24 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:24 - null
+Infor - 07-08-2015 01:21:24 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:24 - null
+Infor - 07-08-2015 01:21:24 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:24 - null
+Infor - 07-08-2015 01:21:24 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:25 - null
+Infor - 07-08-2015 01:21:25 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:25 - null
+Infor - 07-08-2015 01:21:25 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:25 - null
+Infor - 07-08-2015 01:21:25 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:25 - null
+Infor - 07-08-2015 01:21:25 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:25 - null
+Infor - 07-08-2015 01:21:25 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:25 - null
+Infor - 07-08-2015 01:21:25 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:26 - null
+Infor - 07-08-2015 01:21:26 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:26 - null
+Infor - 07-08-2015 01:21:26 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:26 - null
+Infor - 07-08-2015 01:21:26 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:26 - null
+Infor - 07-08-2015 01:21:26 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:26 - null
+Infor - 07-08-2015 01:21:26 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:27 - null
+Infor - 07-08-2015 01:21:27 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:27 - null
+Infor - 07-08-2015 01:21:27 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:27 - null
+Infor - 07-08-2015 01:21:27 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:27 - null
+Infor - 07-08-2015 01:21:27 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:27 - null
+Infor - 07-08-2015 01:21:27 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:27 - null
+Infor - 07-08-2015 01:21:27 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:28 - null
+Infor - 07-08-2015 01:21:28 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:29 - null
+Infor - 07-08-2015 01:21:29 - Servidor parado com sucesso!
+Error - 07-08-2015 01:21:29 - null
+Infor - 07-08-2015 01:21:29 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:21:37 - Servidor iniciado com sucesso!
+Infor - 07-08-2015 01:21:37 - Verificando servidor iniciado...
+null
+Error - 07-08-2015 01:21:37 - Socket closed
+Infor - 07-08-2015 01:21:37 - Reiniciando servidor...
+Infor - 07-08-2015 01:21:37 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:37 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:42 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:42 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:42 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:42 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:42 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:43 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:43 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:43 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:43 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:43 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:43 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:44 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:21:58 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:05 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:06 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:37 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:37 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:37 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:38 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:39 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:40 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:22:41 - Verificando servidor iniciado...
+Infor - 07-08-2015 01:25:13 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:25:56 - Socket closed
+Error - 07-08-2015 01:25:56 - null
+Infor - 07-08-2015 01:25:56 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:26:11 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:26:16 - Socket closed
+Error - 07-08-2015 01:26::16 - null
+Infor - 07-08-2015 01:26:16 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:26:34 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:26:46 - null
+Error - 07-08-201501:26:46 - Socket closed
+Infor - 07-08-2015 01:26:46 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:26:47 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:26:52 - null
+Error - 07-08-2015 01:26:52 - Socket closed
+Infor - 07-08-2015 01:26:52 - Servidor parado com sucesso!
+Infor - 07-08-2015 01:27:28 - Servidor iniciado com sucesso!
+Error - 07-08-2015 01:27:32 - Socket closed
+Error - 07-08-2015 01:27:32 - null
+Infor - 07-08-2015 01:27:32 - Servidor parado com sucesso!
+Infor - 07-08-2015 09:29:05 - Servidor iniciado com sucesso!
+Error - 07-08-2015 09:31:17 - null
+Error - 07-08-2015 09:31:17 - Socket closed
+Infor - 07-08-2015 09:31:17 - Servidor parado com sucesso!
+Infor - 07-08-2015 09:36:33 - Servidor iniciado com sucesso!
+Error - 07-08-2015 10:43:11 - null
+Error - 07-08-2015 10:43:11 - Socket closed
+Infor - 07-08-2015 10:43:11 - Servidor parado com sucesso!
+Infor - 07-08-2015 10:43:43 - Servidor iniciado com sucesso!
+Infor - 07-08-2015 10:47:42 - Servidor iniciado com sucesso!
+Infor - 07-08-2015 10:55:35 - Servidor iniciado com sucesso!
+Error - 07-08-2015 11:13:29 - null
+Error - 07-08-2015 11:23:26 - Socket closed
+Infor - 07-08-2015 11:23:26 - Servidor parado com sucesso!
+Infor - 07-08-2015 15:00:38 - Servidor iniciado com sucesso!
+Infor - 10-08-2015 16:33:29 - Servidor iniciado com sucesso!
+Error - 10-08-2015 16:33:34 - Socket closed
+Error - 10-08-2015 16:33:34 - null
+Infor - 10-08-2015 16:33:34 - Servidor parado com sucesso!
+Infor - 11-08-2015 02:01:25 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:01:51 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:02:33 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:03:45 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:04:20 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:04:42 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:05:01 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:05:21 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:05:42 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:06:39 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:09:23 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:11:08 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:11:58 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:12:37 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:13:32 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:16:58 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:17:34 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:18:27 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:21:17 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:22:41 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:23:00 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:35:01 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:35:32 - Servidor iniciado com sucesso!
+Error - 11-08-2015 02:35:37 - Socket closed
+Error - 11-08-2015 02:35:37 - null
+Infor - 11-08-2015 02:35:37 - Servidor parado com sucesso!
+Infor - 11-08-2015 02:35:40 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 02:37:18 - Servidor iniciado com sucesso!
+Error - 11-08-2015 02:37:19 - null
+Error - 11-08-2015 02:37:19 - Socket closed
+Infor - 11-08-2015 02:37:19 - Servidor parado com sucesso!
+Infor - 11-08-2015 02:37:19 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 08:30:44 - Servidor iniciado com sucesso!
+Error - 11-08-2015 08:30:48 - null
+Error - 11-08-2015 08:30:30:48 - Socket closed
+Infor - 11-08-2015 08:30:48 - Servidor parado com sucesso!
+Infor - 11-08-2015 08:30:50 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 08:32:14 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 08:32:49 - Servidor iniciado com sucesso!
+Error - 11-08-2015 08:32:51 - null
+Error - 11-08-2015 08:32:51 - Socket closed
+Infor - 11-08-2015 08:32:51 - Servidor parado com sucesso!
+Infor - 11-08-2015 08:32:53 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 08:33:36 - Servidor iniciado com sucesso!
+Error - 11-08-2015 08:33:38 - null
+Error - 11-08-2015 08:33:38 - Socket closed
+Infor - 11-08-2015 08:33:38 - Servidor parado com sucesso!
+Infor - 11-08-2015 08:33:44 - Servidor iniciado com sucesso!
+Error - 11-08-2015 08:33:48 - null
+Error - 11-08-2015 08:33:48 - Socket closed
+Infor - 11-08-2015 08:33:48 - Servidor parado com sucesso!
+Infor - 11-08-2015 08:33:53 - Servidor iniciado com sucesso!
+Error - 11-08-2015 08:33:57 - Socket closed
+Error - 11-08-2015 08:33:57 - null
+Infor - 11-08-2015 08:33:57 - Servidor parado com sucesso!
+Infor - 11-08-2015 08:34:02 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 08:36:16 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 08:54:19 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 17:32:11 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 17:53:04 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 18:08:00 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 18:13:41 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 18:26:40 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 18:32:31 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 22:10:13 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 22:17:49 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 22:35:49 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 23:14:24 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 23:25:27 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 23:34:57 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 23:45:40 - Servidor iniciado com sucesso!
+Infor - 11-08-2015 23:48:34 - Servidor iniciado com sucesso!
+Error - 12-08-2015 00:03:12 - null
+Error - 12-08-2015 00:03:12 - Socket closed
+Infor - 12-08-2015 00:03:12 - Servidor parado com sucesso!
+Infor - 12-08-2015 00:03:15 - Servidor iniciado com sucesso!
+Infor - 12-08-2015 14:03:03 - Servidor iniciado com sucesso!
+Infor - 12-08-2015 16:34:30 - Servidor iniciado com sucesso!
+Infor - 12-08-2015 16:47:47 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 09:42:06 - Servidor iniciado com sucesso!
+Error - 18-08-2015 09:42:49 - null
+Infor - 18-08-2015 10:09:26 - Servidor iniciado com sucesso!
+Error - 18-08-2015 10:11:07 - null
+Error - 18-08-2015 10:11:51 - null
+Error - 18-08-2015 10:16:02 - null
+Infor - 18-08-2015 11:07:37 - Servidor iniciado com sucesso!
+Error - 18-08-2015 11:12:00 - null
+Error - 18-08-2015 11:16:08 - null
+Error - 18-08-2015 11:44:30 - null
+Error - 18-08-2015 11:45:43 - null
+Error - 18-08-2015 11:45:43 - null
+Error - 18-08-2015 11:49:17 - null
+Error - 18-08-2015 11:50:05 - null
+Error - 18-08-2015 11:50:05 - null
+Error - 18-08-2015 11:52:14 - null
+Infor - 18-08-2015 11:52:39 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 11:57:22 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 12:00:34 - Servidor iniciado com sucesso!
+Error - 18-08-2015 12:01:07 - Connection reset
+Error - 18-08-2015 12:01:50 - Connection reset
+Error - 18-08-2015 12:02:46 - Connection reset
+Error - 18-08-2015 12:03:26 - Connection reset
+Error - 18-08-2015 12:05:24 - Connection reset
+Error - 18-08-2015 12:06:50 - Connection reset
+Infor - 18-08-2015 12:07:48 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 12:15:06 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 12:21:10 - Servidor iniciado com sucesso!
+Error - 18-08-2015 12:21:31 - null
+Infor - 18-08-2015 12:21:39 - Servidor parado com sucesso!
+Error - 18-08-2015 12:21:39 - Socket closed
+Infor - 18-08-2015 12:22:04 - Servidor iniciado com sucesso!
+Error - 18-08-2015 12:25:12 - Connection reset
+Error - 18-08-2015 12:25:12 - Connection reset
+Infor - 18-08-2015 12:30:16 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 13:49:37 - Servidor iniciado com sucesso!
+Infor - 18-08-2015 13:51:34 - Servidor iniciado com sucesso!
+Error - 18-08-2015 13:52:49 - null
+Error - 18-08-2015 13:58:40 - null
+Error - 18-08-2015 14:14:57 - null
+Error - 18-08-2015 14:15:00 - null
+Error - 18-08-2015 14:15:11 - null
+Error - 18-08-2015 14:16:42 - null
+Error - 18-08-2015 14:18:09 - Pipe quebrado
+Error - 18-08-2015 14:20:29 - null
+Error - 18-08-2015 14:21:13 - null
+Error - 18-08-2015 14:23:24 - null
+Error - 18-08-2015 14:23:33 - null
+Error - 18-08-2015 14:25:59 - Connection reset
+Error - 18-08-2015 14:26:48 - Connection reset
+Error - 18-08-2015 14:27:27 - Connection reset
+Error - 18-08-2015 14:27:34 - Connection reset
+Error - 18-08-2015 14:28:04 - Connection reset
+Error - 18-08-2015 14:34:59 - null
+Error - 18-08-2015 14:36:22 - null
+Error - 18-08-2015 14:38:19 - null
+Infor - 18-08-2015 14:46:51 - Servidor iniciado com sucesso!
+Error - 18-08-2015 14:49:00 - null
+Infor - 18-08-2015 14:57:14 - Servidor iniciado com sucesso!
+Error - 18-08-2015 14:58:26 - Connection reset
+Infor - 18-08-2015 15:05:57 - Servidor iniciado com sucesso!
+Error - 18-08-2015 15:07:32 - Connection reset
+Infor - 28-10-2015 11:08:14 - Servidor iniciado com sucesso!
+Infor - 22-11-2015 12:14:47 - Servidor iniciado com sucesso!
+Infor - 16-03-2016 20:46:32 - Servidor iniciado com sucesso!
+Infor - 17-03-2016 14:37:05 - Servidor iniciado com sucesso!
+Infor - 17-03-2016 14:46:41 - Servidor iniciado com sucesso!
+Infor - 19-03-2016 16:41:53 - Servidor iniciado com sucesso!
+Infor - 18-03-2016 14:07:35 - Servidor iniciado com sucesso!
+Infor - 24-03-2016 17:05:43 - Servidor iniciado com sucesso!
+Error - 24-03-2016 17:08:52 - null
+Error - 24-03-2016 17:08:52 - socket closed
+Infor - 24-03-2016 17:08:52 - Servidor parado com sucesso!
+Infor - 24-03-2016 17:08:54 - Servidor iniciado com sucesso!
+Infor - 22-04-2016 14:19:16 - Servidor iniciado com sucesso!
+Infor - 22-04-2016 14:48:29 - Servidor iniciado com sucesso!
+Infor - 22-04-2016 15:07:38 - Servidor iniciado com sucesso!
+Infor - 22-04-2016 15:13:37 - Servidor iniciado com sucesso!
+Infor - 22-04-2016 15:39:27 - Servidor iniciado com sucesso!

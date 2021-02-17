@@ -1931,6 +1931,13 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         backup.setLocal(txtLocal.getText());
         backup.setDestino(txtDestino.getText());
         backup.setNome(txtNomeBackup.getText());
+        
+        backup.setHost(ftpIp);
+        backup.setUsuario(ftpLogin);
+        backup.setSenha(ftpSenha);
+        backup.setPorta(ftpPorta);
+        backup.setModoConexao(ftpModoConexao);
+        //backup.setFtpDestino(ftpLogin);
 
         backup.setFlagSemana(String.valueOf(chkContinuarBackup.isSelected()));
         backup.setDom(chkDomingo.isSelected() && chkContinuarBackup.isSelected() ? NomeAbreviacao.DOMINGO : "false");
@@ -2512,6 +2519,46 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     public void excluirThreadArquivo(int linhaTbl) {
         SwingBackupArquivo.excluirThreadArquivo(linhaTbl);
     }
+    
+    public String getFtpModoConexao(){
+        return this.ftpModoConexao;
+    }
+    
+    public void setFtpModoConexao(String ftpModoConexao){
+        this.ftpModoConexao = ftpModoConexao;
+    }
+    
+    public String getFtpIp(){
+        return this.ftpIp;
+    }
+    
+    public void setFtpIp(String ftpIp){
+        this.ftpIp = ftpIp;
+    }
+    
+    public String getFtpPorta(){
+        return this.ftpPorta;
+    }
+    
+    public void setFtpPorta(String ftpPorta){
+        this.ftpPorta = ftpPorta;
+    }
+    
+    public String getFtpLogin(){
+        return this.ftpLogin;
+    }
+    
+    public void setFtpLogin(String ftpLogin){
+        this.ftpLogin = ftpLogin;
+    }
+    
+    public String getFtpSenha(){
+        return this.ftpSenha;
+    }
+    
+    public void setFtpSenha(String ftpSenha){
+        this.ftpSenha = ftpSenha;
+    }
 
     //Dados necessário para inicializar o JFrame
     private void inicializarJFrame() {
@@ -2644,6 +2691,11 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     private int qtdBkpArquivo = 0;
     private long bytesEnviados = 0l;
     private long bytesRecebidos = 0l;
+    private String ftpLogin = "";
+    private String ftpSenha = "";
+    private String ftpPorta = "";
+    private String ftpIp = "";
+    private String ftpModoConexao = "";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAdicionar;

@@ -22,7 +22,7 @@ import java.util.zip.ZipOutputStream;
 public class CompactarPasta {
 
     private final String nomeBackupArquivo;
-    private static final int TAM_BUFFER = 1024;
+    private static final int TAM_BUFFER = 4096;
     private DataReturn dtr;
     private RelatorioArquivo ra;
 

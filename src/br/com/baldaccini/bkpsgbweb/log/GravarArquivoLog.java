@@ -64,7 +64,7 @@ public class GravarArquivoLog {
     public static void gravarLogWarning(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
-            info = "Warni - ";
+            info = "Warn - ";
             info += dr.sysDataPath();
             info += " ";
             info += dr.sysHora();
@@ -120,7 +120,7 @@ public class GravarArquivoLog {
     public static void gravarLogInformation(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
-            info = "Infor - ";
+            info = "Info - ";
             info += dr.sysDataPath();
             info += " ";
             info += dr.sysHora();

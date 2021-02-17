@@ -85,6 +85,11 @@ public class BkpArquivoXML {
                     backup.setDataBackupAgendado(pessoa.getChildText("dataBackupAgendado"));
                     backup.setFlagData(pessoa.getChildText("flagData"));
                     backup.setFlagSemana(pessoa.getChildText("flagSemana"));
+                    backup.setHost(pessoa.getChildText("host"));
+                    backup.setPorta(pessoa.getChildText("porta"));
+                    backup.setUsuario(pessoa.getChildText("usuario"));
+                    backup.setSenha(pessoa.getChildText("senha"));
+                    backup.setModoConexao(pessoa.getChildText("modoConexao"));
                     listabackup.add(backup);
                 }
                 return listabackup;

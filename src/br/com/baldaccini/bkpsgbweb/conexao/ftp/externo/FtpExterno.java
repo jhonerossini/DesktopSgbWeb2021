@@ -5,6 +5,7 @@
  */
 package br.com.baldaccini.bkpsgbweb.conexao.ftp.externo;
 
+import br.com.baldaccini.bkpsgbweb.conexao.ConectarFtp;
 import br.com.baldaccini.bkpsgbweb.interfaces.IDestinoFtp;
 import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
@@ -29,7 +30,7 @@ import org.apache.commons.net.ftp.FTPReply;
 public class FtpExterno implements IDestinoFtp {
 
     private InputStream is;
-    private FTPClient ftp;
+    private FTPClient ftp = null;
     private DefaultMutableTreeNode raiz;
     private final DefaultTreeModel model;
     private long total = 0l;
@@ -199,39 +200,27 @@ public class FtpExterno implements IDestinoFtp {
             ftp.changeWorkingDirectory("../");
         } catch (IOException ex) {
             GravarArquivoLog.gravarTodosLog(ex.getMessage());
+            if(destinoFtp != null)
             destinoFtp.atualizarLog(ex.getMessage());
         }
     }
 
     @Override
     public boolean conectar(String ip, int porta, String usuario, String pass, String diretorio, boolean modoPassivo) {
-        ftp = new FTPClient();
         try {
-            ftp.connect(ip, porta);
-            if (ftp.login(usuario, pass)) {
-                if (FTPReply.isPositiveCompletion(ftp.getReplyCode())) {
-                    destinoFtp.atualizarLog("Conectado!");
-                    if (ftp.setFileType(FTP.BINARY_FILE_TYPE)) {
-                        destinoFtp.atualizarLog("Tipo da transferencia alterada para binario");
-                    } else {
-                        destinoFtp.atualizarLog("Não foi possivel alterar o tipo da transferencia para binario");
-                    }
-                    if (modoPassivo) {
-                        ftp.enterLocalPassiveMode();
-                        //lblModoFlag.setText("Passivo");
-                    } else {
-                        ftp.enterLocalActiveMode();
-                        //lblModoFlag.setText("Ativo");
-                    }
-                }
-
+            ftp = new ConectarFtp().conectar(ip, porta, usuario, pass, diretorio, modoPassivo);
+            if(ftp != null){
+                if(destinoFtp != null){
                 destinoFtp.atualizarLog("" + ftp.getReplyString());
                 destinoFtp.atualizarLog("Porta " + ftp.getDefaultPort());
+                }
 
                 if (!"".equals(diretorio)) {
                     ftp.changeWorkingDirectory(diretorio);
+                    if(destinoFtp != null)
                     destinoFtp.atualizarLog(diretorio);
                 } else {
+                    if(destinoFtp != null)
                     destinoFtp.atualizarLog(diretorio);
                 }
                 //lblArqRaizFlag.setText(ftp.printWorkingDirectory());
@@ -254,8 +243,44 @@ public class FtpExterno implements IDestinoFtp {
             }
         } catch (IOException ex) {
             GravarArquivoLog.gravarTodosLog(ex.getMessage());
+            if(destinoFtp != null)
             destinoFtp.atualizarLog(ex.getMessage());
             return false;
+        }
+    }
+    
+    public FTPClient conectarr(String ip, int porta, String usuario, String pass, String diretorio, boolean modoPassivo) {
+        ftp = new FTPClient();
+        try {
+            ftp.connect(ip, porta);
+            if (ftp.login(usuario, pass)) {
+                if (FTPReply.isPositiveCompletion(ftp.getReplyCode())) {
+                    if(destinoFtp != null)
+                    destinoFtp.atualizarLog("Conectado!");
+                    if (ftp.setFileType(FTP.BINARY_FILE_TYPE)) {
+                        if(destinoFtp != null)
+                        destinoFtp.atualizarLog("Tipo da transferencia alterada para binario");
+                    } else {
+                        if(destinoFtp != null)
+                        destinoFtp.atualizarLog("Não foi possivel alterar o tipo da transferencia para binario");
+                    }
+                    if (modoPassivo) {
+                        ftp.enterLocalPassiveMode();
+                        //lblModoFlag.setText("Passivo");
+                    } else {
+                        ftp.enterLocalActiveMode();
+                        //lblModoFlag.setText("Ativo");
+                    }
+                }
+                return ftp;
+            } else {
+                return null;
+            }
+        } catch (IOException ex) {
+            GravarArquivoLog.gravarTodosLog(ex.getMessage());
+            if(destinoFtp != null)
+            destinoFtp.atualizarLog(ex.getMessage());
+            return null;
         }
     }
 

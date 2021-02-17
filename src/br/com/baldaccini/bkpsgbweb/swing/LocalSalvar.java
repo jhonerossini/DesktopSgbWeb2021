@@ -342,6 +342,11 @@ public class LocalSalvar extends javax.swing.JFrame {
                                 if (dFtp.getFtpExterno().conectar(txtArqIp.getText(), "".equals(txtArqPorta.getText()) ? 21 : Integer.parseInt(txtArqPorta.getText()), txtArqUsuario.getText(), String.valueOf(pasArqSenha.getPassword()), txtArqDiretorio.getText(), chkModoPassivo.isSelected())) {
                                     btnArqConectar.setText("Desconectar");
                                     lblArqNotificacoesLocalSalvar.setText("Conectado!");
+                                    configBkp.setFtpIp(txtArqIp.getText());
+                                    configBkp.setFtpPorta(txtArqPorta.getText());
+                                    configBkp.setFtpLogin(txtArqUsuario.getText());
+                                    configBkp.setFtpSenha(pasArqSenha.getPassword().toString());
+                                    configBkp.setFtpModoConexao(String.valueOf(chkModoPassivo.isSelected()));
                                     dFtp.setVisible(true);
                                 } else {
                                     btnArqConectar.setText("Conectar");

@@ -303,7 +303,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ftp.xpg.com.br"/>
+                <Property name="text" type="java.lang.String" value="192.168.0.104"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblArqPorta">
@@ -328,7 +328,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="rossinierossini"/>
+                <Property name="text" type="java.lang.String" value="debian"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblArqSenha">
@@ -341,7 +341,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Programador"/>
+                <Property name="text" type="java.lang.String" value="debian"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnArqConectar">

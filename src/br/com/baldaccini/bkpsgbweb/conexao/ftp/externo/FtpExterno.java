@@ -183,6 +183,10 @@ public class FtpExterno implements IDestinoFtp {
     private void listarDiretorioFtp() {
         try {
             FTPFile[] fTpFile = ftp.listFiles();
+            if(fTpFile != null && fTpFile.length <= 0){
+                buildTreeFromString((DefaultTreeModel) model, ftp.printWorkingDirectory());
+                return;
+            }
             for (FTPFile f : fTpFile) {
                 if (f.isDirectory()) {
                     if (ftp.changeWorkingDirectory(f.getName())) {
@@ -214,16 +218,26 @@ public class FtpExterno implements IDestinoFtp {
                 destinoFtp.atualizarLog("" + ftp.getReplyString());
                 destinoFtp.atualizarLog("Porta " + ftp.getDefaultPort());
                 }
-
-                if (!"".equals(diretorio)) {
-                    ftp.changeWorkingDirectory(diretorio);
-                    if(destinoFtp != null)
-                    destinoFtp.atualizarLog(diretorio);
-                } else {
-                    if(destinoFtp != null)
-                    destinoFtp.atualizarLog(diretorio);
+                
+                if(diretorio != null && !"".equals(diretorio)){
+                    if(ftp.changeWorkingDirectory(diretorio)){
+                        if(destinoFtp != null){
+                            destinoFtp.setLblDestinoFlag(ftp.printWorkingDirectory());
+                            destinoFtp.atualizarLog("Alterou para o diretorio: " + diretorio);
+                            GravarArquivoLog.gravarLogInformation("Alterou para o diretorio: " + diretorio, ConfigBkp.getInstance());
+                        }
+                    }else{
+                        if(destinoFtp != null){
+                            destinoFtp.atualizarLog("Não foi possivel aterar o diretorio " + diretorio);
+                            GravarArquivoLog.gravarLogInformation("Não foi possivel aterar o diretorio " + diretorio, ConfigBkp.getInstance());
+                        }
+                        if(ftp.changeWorkingDirectory("/")){
+                            destinoFtp.atualizarLog("Voltou para o diretorio raiz.");
+                            GravarArquivoLog.gravarLogInformation("Voltou para o diretorio raiz.", ConfigBkp.getInstance());
+                        }
+                    }
                 }
-                //lblArqRaizFlag.setText(ftp.printWorkingDirectory());
+                
                 Runnable rn = new Runnable() {
 
                     @Override

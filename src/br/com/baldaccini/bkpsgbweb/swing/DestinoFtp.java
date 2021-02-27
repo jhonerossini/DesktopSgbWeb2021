@@ -201,6 +201,10 @@ public class DestinoFtp extends javax.swing.JFrame {
     public FtpExterno getFtpExterno() {
         return this.ftpExterno;
     }
+    
+    public void setLblDestinoFlag(String lblDestinoFlag){
+        this.lblDestinoFlag.setText(lblDestinoFlag);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnPronto;

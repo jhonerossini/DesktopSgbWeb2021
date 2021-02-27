@@ -19,15 +19,17 @@ public class GravarArquivoLog {
     private BufferedReader br;
     private static DataReturn dr;
     private static FileWriter arq;
-    private static String info;
+    private static StringBuilder info;
     private static PrintWriter pw;
 
     public GravarArquivoLog() {
         try {
             f = new File("arqLog.txt");
-            arq = new FileWriter("arqLog.txt", true);
+            arq = new FileWriter(f, true);
             pw = new PrintWriter(arq);
+            info = new StringBuilder();
         } catch (IOException ex) {
+            System.out.println("GravarArquivoLog -> GravarArquivoLog: " + ex.getMessage());
         }
     }
 
@@ -42,7 +44,6 @@ public class GravarArquivoLog {
         StringBuilder texto = null;
         try {
             fr = new FileReader("arqLog.txt");
-
             br = new BufferedReader(fr);
             texto = new StringBuilder();
             try {
@@ -64,42 +65,42 @@ public class GravarArquivoLog {
     public static void gravarLogWarning(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
-            info = "Warn - ";
-            info += dr.sysDataPath();
-            info += " ";
-            info += dr.sysHora();
-            info += ":";
-            info += dr.sysMin();
-            info += ":";
-            info += dr.sysSec();
-            info += " - ";
-            pw.append(info);
+            info.append("Warn - ");
+            info.append(dr.sysDataPath());
+            info.append(" ");
+            info.append(dr.sysHora());
+            info.append(":");
+            info.append(dr.sysMin());
+            info.append(":");
+            info.append(dr.sysSec());
+            info.append(" - ");
+            pw.append(info.toString());
             pw.append(log);
             pw.flush();
-            pw.close();
             arq.flush();
-            arq.close();
             if (configBkp != null) {
-                configBkp.atualizarLogArquivo(info + log);
+                configBkp.atualizarLogArquivo(info.append(log).toString());
             }
         } catch (IOException ex) {
             gravarLogError(ex.getMessage(), null);
+        }finally {
+            info.setLength(0);
         }
     }
 
     public static void gravarLogError(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
-            info = "Error - ";
-            info += dr.sysDataPath();
-            info += " ";
-            info += dr.sysHora();
-            info += ":";
-            info += dr.sysMin();
-            info += ":";
-            info += dr.sysSec();
-            info += " - ";
-            pw.append(info);
+            info.append("Error - ");
+            info.append(dr.sysDataPath());
+            info.append(" ");
+            info.append(dr.sysHora());
+            info.append(":");
+            info.append(dr.sysMin());
+            info.append(":");
+            info.append(dr.sysSec());
+            info.append(" - ");
+            pw.append(info.toString());
             pw.append(log);
             pw.println();
             pw.flush();
@@ -108,62 +109,63 @@ public class GravarArquivoLog {
                 configBkp.atualizarLogArquivo(info + log);
             }
         } catch (IOException ex) {
+            System.out.println("GravarArquivoLog -> gravarLogError: "+ex.getMessage());
+            ConfigBkp.getInstance().atualizarLogArquivo("GravarArquivoLog -> gravarLogError: " + ex.getMessage());
         } finally {
-            try {
-                arq.close();
-            } catch (IOException ex) {
-            }
-            pw.close();
+            info.setLength(0);
         }
     }
 
     public static void gravarLogInformation(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
-            info = "Info - ";
-            info += dr.sysDataPath();
-            info += " ";
-            info += dr.sysHora();
-            info += ":";
-            info += dr.sysMin();
-            info += ":";
-            info += dr.sysSec();
-            info += " - ";
-            pw.append(info);
+            info.append("Info - ");
+            info.append(dr.sysDataPath());
+            info.append(" ");
+            info.append(dr.sysHora());
+            info.append(":");
+            info.append(dr.sysMin());
+            info.append(":");
+            info.append(dr.sysSec());
+            info.append(" - ");
+            pw.append(info.toString());
             pw.append(log);
             pw.println();
             pw.flush();
-            pw.close();
             arq.flush();
-            arq.close();
             if (configBkp != null) {
-                configBkp.atualizarLogArquivo(info + log);
+                configBkp.atualizarLogArquivo(info.append(log).toString());
             }
         } catch (IOException ex) {
             gravarLogError(ex.getMessage(), null);
+        }finally{
+            info.setLength(0);
         }
     }
 
     public static void gravarTodosLog(String log) {
         dr = new DataReturn();
         try {
-            info = "error - ";
-            info += dr.sysDataPath();
-            info += " ";
-            info += dr.sysHora();
-            info += ":";
-            info += dr.sysMin();
-            info += ":";
-            info += dr.sysSec();
-            info += " - ";
-            pw.append(info);
+            info.append("error - ");
+            info.append(dr.sysDataPath());
+            info.append(" ");
+            info.append(dr.sysHora());
+            info.append(":");
+            info.append(dr.sysMin());
+            info.append(":");
+            info.append(dr.sysSec());
+            info.append(" - ");
+            pw.append(info.toString());
             pw.append(log);
             pw.println();
             pw.flush();
-            pw.close();
             arq.flush();
-            arq.close();
+            ConfigBkp.getInstance().atualizarLogArquivo(info.append(log).toString());
         } catch (IOException ex) {
+            System.out.println("GravarArquivoLog -> gravarTodosLog: " + ex.getMessage());
+            ConfigBkp.getInstance().atualizarLogArquivo("GravarArquivoLog -> gravarTodosLog: " + ex.getMessage());
+        }finally{
+            info.setLength(0);
         }
     }
 }

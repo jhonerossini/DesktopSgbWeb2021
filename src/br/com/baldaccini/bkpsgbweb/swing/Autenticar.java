@@ -44,7 +44,7 @@ public class Autenticar extends javax.swing.JFrame {
 
         txt_usuario.setText("Jhone");
 
-        pass_senha.setText("asd");
+        pass_senha.setText("123");
 
         btn_autenticar.setBackground(new java.awt.Color(0, 51, 153));
         btn_autenticar.setForeground(new java.awt.Color(255, 255, 255));

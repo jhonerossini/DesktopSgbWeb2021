@@ -155,7 +155,7 @@ public class LocalSalvar extends javax.swing.JFrame {
         lblArqIp.setText("IP:");
 
         txtArqIp.setBackground(new java.awt.Color(204, 204, 204));
-        txtArqIp.setText("ftp.xpg.com.br");
+        txtArqIp.setText("192.168.0.104");
 
         lblArqPorta.setText("Porta:");
 
@@ -164,12 +164,12 @@ public class LocalSalvar extends javax.swing.JFrame {
         lblArqUsuario.setText("Usuario:");
 
         txtArqUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        txtArqUsuario.setText("rossinierossini");
+        txtArqUsuario.setText("debian");
 
         lblArqSenha.setText("Senha:");
 
         pasArqSenha.setBackground(new java.awt.Color(204, 204, 204));
-        pasArqSenha.setText("Programador");
+        pasArqSenha.setText("debian");
 
         btnArqConectar.setBackground(new java.awt.Color(0, 51, 153));
         btnArqConectar.setForeground(java.awt.Color.white);

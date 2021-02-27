@@ -17,7 +17,6 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 
 /**
@@ -28,6 +27,8 @@ import org.apache.commons.net.ftp.FTPReply;
 public class ConectarFtp {
 
     private FTPClient ftp = null;
+    private DirectoryStream<Path> entradas;
+    private boolean destinoRaiz = true;
 
     public ConectarFtp() {
         this.ftp = new FTPClient();
@@ -36,25 +37,24 @@ public class ConectarFtp {
     public FTPClient conectar(String ip, int porta, String usuario, String pass, String diretorio, boolean modoPassivo) {
         try {
             ftp.connect(ip, porta);
-            GravarArquivoLog.gravarTodosLog("Conexão estabelecida com sucesso!");
+            GravarArquivoLog.gravarLogInformation("Conexão estabelecida com sucesso!", ConfigBkp.getInstance());
             if (ftp.login(usuario, pass)) {
-                GravarArquivoLog.gravarTodosLog("Login realizado com sucesso!");
+                GravarArquivoLog.gravarLogInformation("Login realizado com sucesso!", ConfigBkp.getInstance());
                 ftp.setSendBufferSize(8192);
                 ftp.setBufferSize(8192);
                 GravarArquivoLog.gravarLogInformation("Taxa de envio 8Mb", ConfigBkp.getInstance());
                 if (FTPReply.isPositiveCompletion(ftp.getReplyCode())) {
                     if(ftp.setFileType(FTP.BINARY_FILE_TYPE)){
-                        GravarArquivoLog.gravarTodosLog("Tipo da transferencia alterada para binario.");
+                        GravarArquivoLog.gravarLogInformation("Tipo da transferencia alterada para binario.", ConfigBkp.getInstance());
                     }else{
-                        GravarArquivoLog.gravarTodosLog("Não foi possivel alterar o tipo da transferencia para binario.");
+                        GravarArquivoLog.gravarLogInformation("Não foi possivel alterar o tipo da transferencia para binario.", ConfigBkp.getInstance());
                     }
-                    
                     if (modoPassivo) {
                         ftp.enterLocalPassiveMode();
-                        GravarArquivoLog.gravarTodosLog("Alterou para o modo passivo.");
+                        GravarArquivoLog.gravarLogInformation("Alterou para o modo passivo.", ConfigBkp.getInstance());
                     } else {
                         ftp.enterLocalActiveMode();
-                        GravarArquivoLog.gravarTodosLog("Alterou para o modo ativo.");
+                        GravarArquivoLog.gravarLogInformation("Alterou para o modo ativo.", ConfigBkp.getInstance());
                     }
                 }
             }
@@ -63,13 +63,10 @@ public class ConectarFtp {
         }
         return ftp;
     }
-    private String destino;
-    private DirectoryStream<Path> entradas;
-    boolean destinoRaiz=true;
-    public boolean enviarArquivo(Path local, String destino) throws IOException{
+    
+    private boolean enviarArquivoCall(Path local){
         try {
             if(destinoRaiz){
-                this.destino = destino;
                 destinoRaiz = false;
             }
             if (Files.isDirectory(local)) {
@@ -80,10 +77,6 @@ public class ConectarFtp {
             String dirLinux = "";
             for (Path entrada : entradas) {
                 if(Files.isDirectory(entrada, LinkOption.NOFOLLOW_LINKS)){
-                    dir = (entrada.getParent()+File.separator+entrada.getFileName());
-                    System.out.println("Diretorio: " + dir);
-                    dirLinux = dir.substring(dir.lastIndexOf(this.destino), dir.length());
-                    System.out.println("Diretorio linux: " + dirLinux);
                     dirLinux = entrada.getFileName().toString();
                     if(!ftp.changeWorkingDirectory(dirLinux)){
                         if(ftp.makeDirectory(dirLinux)){
@@ -93,31 +86,28 @@ public class ConectarFtp {
                         }
                     }
                 
-                    enviarArquivo(entrada, dirLinux);
+                    enviarArquivoCall(entrada);
                 }else{
                     dir = entrada.getParent()+File.separator+entrada.getFileName();
-                    System.out.println("Arquivo: " + dir);
-                    dirLinux = dir.substring(dir.lastIndexOf(this.destino), dir.length());
-                    System.out.println("Arquivo Linux: " + dirLinux);
                     File file = new File(dir);
                     InputStream is = new FileInputStream(file);
                     GravarArquivoLog.gravarLogInformation("Enviando arquivo...", ConfigBkp.getInstance());
                     ftp.storeFile(file.getName(), is);
-                    GravarArquivoLog.gravarLogInformation("Envio concluido com sucesso!", ConfigBkp.getInstance());
+                    GravarArquivoLog.gravarLogInformation("Envio concluido com sucesso: " + file.getName(), ConfigBkp.getInstance());
                 }
             }
             ftp.changeWorkingDirectory("../");
-//            FTPFile file = ftp.mlistFile("wafiapps.net_Adobe_Flash_CS3_Professional.zip");
-//            if(file != null){
-//                if("xstream.zip".equals(file.getName().replace("/",""))){
-//                    lblResposta.setText("Arquivo ja existe no diretorio FTP!!");
-//                    return;
-//                }
-//            }
         }catch(IOException ex){
             GravarArquivoLog.gravarLogInformation("Falha ao enviar arquivo: " + ex.getMessage(), ConfigBkp.getInstance());
             return false;
         }
         return true;
+    }
+
+    public void enviarArquivo(Path local, String destino) throws IOException{
+        if(destino != null && !"".equals(destino)){
+            ftp.changeWorkingDirectory(destino);
+        }
+        enviarArquivoCall(local);
     }
 }

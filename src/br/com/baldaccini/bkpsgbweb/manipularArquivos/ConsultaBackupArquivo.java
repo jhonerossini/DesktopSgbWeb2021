@@ -3,11 +3,12 @@
  * and open the template in the editor.
  */
 package br.com.baldaccini.bkpsgbweb.manipularArquivos;
-import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 
 import br.com.baldaccini.bkpsgbweb.conexao.ConectarFtp;
 import br.com.baldaccini.bkpsgbweb.data.DataReturn;
+import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 import br.com.baldaccini.bkpsgbweb.modelo.BackupArquivo;
+import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
 import br.com.baldaccini.bkpsgbweb.zipunzip.CompactarPasta;
 import java.io.File;
 import java.io.IOException;
@@ -148,21 +149,18 @@ public class ConsultaBackupArquivo {
     }
     
     private void backupNormalComFtp(){
-        if(!"".equals(backup.getHost())){
-            String ip = backup.getHost();
-            String porta = backup.getPorta();
-            String usuario = backup.getUsuario();
-            String senha = "debian";//backup.getSenha();
-            String modoPassivo = backup.getModoConexao();
-            ConectarFtp conexaoFtp = new ConectarFtp();
-            conexaoFtp.conectar(ip, porta != null && !"".equals(porta) ? Integer.parseInt(porta) : 21, usuario, senha, backup.getDestino(), (modoPassivo != null && !"".equals(modoPassivo) ? "true".equals(modoPassivo) : false));
-            try {
-                conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), new File(backup.getLocal()).getName());
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }else{
-            ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+        String ip = backup.getHost();
+        String porta = backup.getPorta();
+        String usuario = backup.getUsuario();
+        String senha = "debian";//backup.getSenha();
+        String modoPassivo = backup.getModoConexao();
+        ConectarFtp conexaoFtp = new ConectarFtp();
+        conexaoFtp.conectar(ip, porta != null && !"".equals(porta) ? Integer.parseInt(porta) : 21, usuario, senha, backup.getDestino(), (modoPassivo != null && !"".equals(modoPassivo) ? "true".equals(modoPassivo) : false));
+        try {
+            conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), backup.getDestino());
+        } catch (IOException ex) {
+            GravarArquivoLog.gravarLogInformation(ex.getMessage(), ConfigBkp.getInstance());
+            System.out.println(ex.getMessage());
         }
     }
 }

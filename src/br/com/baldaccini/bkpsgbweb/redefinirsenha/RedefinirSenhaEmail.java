@@ -17,13 +17,10 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import br.com.baldaccini.bkpsgbweb.modelo.Email;
 import br.com.baldaccini.bkpsgbweb.modelo.Login;
+import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
 import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
-import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.mail.Message;
 import org.jdom2.JDOMException;
 
@@ -46,10 +43,11 @@ public class RedefinirSenhaEmail {
             try {
                 enviarEmailGmail(enviarEmail);
             } catch (AddressException ex) {
-                GravarArquivoLog.gravarTodosLog(ex.getMessage());
+                GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
                 JOptionPane.showMessageDialog(null, "Endereço de e-mail digitado incorretamente!");
             }
         } else {
+            GravarArquivoLog.gravarLogInformation("Email não cadastrado.", ConfigBkp.getInstance());
             JOptionPane.showMessageDialog(null, "Email não cadastrado.");
         }
     }
@@ -68,13 +66,13 @@ public class RedefinirSenhaEmail {
                 message.setSubject(email.getAssunto());
                 message.setContent(email.getCorpo(), "text/plain");
             } catch (UnsupportedEncodingException ex) {
-                GravarArquivoLog.gravarTodosLog(ex.getMessage());
+                GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
                 JOptionPane.showMessageDialog(null, "Erro na configuração do e-mail, tente novamente!");
             }
             Transport.send(message);
             JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso!\nCaso não encontre o e-mail, verifique na caixa de span.");
         } catch (MessagingException ex) {
-            GravarArquivoLog.gravarTodosLog(ex.getMessage());
+            GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
             JOptionPane.showMessageDialog(null, "Não foi possível enviar o e-mail, verifique sua conexão com a internet!");
         }
     }
@@ -94,13 +92,13 @@ public class RedefinirSenhaEmail {
                 message.setSubject(email.getAssunto());
                 message.setContent(email.getCorpo(), "text/plain");
             } catch (UnsupportedEncodingException ex) {
-                GravarArquivoLog.gravarTodosLog(ex.getMessage());
+                GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
                 JOptionPane.showMessageDialog(null, "Erro na configuração do e-mail, tente novamente!");
             }
             Transport.send(message);
             JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso!\nCaso não encontre o e-mail, verifique na caixa de span.");
         } catch (MessagingException ex) {
-            GravarArquivoLog.gravarTodosLog(ex.getMessage());
+            GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
             JOptionPane.showMessageDialog(null, "Não foi possível enviar o e-mail, verifique sua conexão com a internet!");
         }
     }

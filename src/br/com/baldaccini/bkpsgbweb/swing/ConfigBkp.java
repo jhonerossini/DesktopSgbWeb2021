@@ -34,7 +34,9 @@ import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
 
 /**
@@ -1937,7 +1939,6 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         backup.setSenha(ftpSenha);
         backup.setPorta(ftpPorta);
         backup.setModoConexao(ftpModoConexao);
-        //backup.setFtpDestino(ftpLogin);
 
         backup.setFlagSemana(String.valueOf(chkContinuarBackup.isSelected()));
         backup.setDom(chkDomingo.isSelected() && chkContinuarBackup.isSelected() ? NomeAbreviacao.DOMINGO : "false");
@@ -2082,7 +2083,6 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     }//GEN-LAST:event_txtRbEditarPortaKeyReleased
 
     private void btnRbIniciarRestauracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRbIniciarRestauracaoActionPerformed
-        // TODO add your handling code here:
         int linha = tblBkpAgendados.getSelectedRow();
         if (linha < 0) {
             JOptionPane.showMessageDialog(this, "");
@@ -2308,7 +2308,6 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         pnlBackupArquivo.setVisible(false);
         pnlBkpBancoDados.setVisible(false);
         tpDbBackupBancoDados.setVisible(false);
-
         pnlServidorBackup.setVisible(true);
     }//GEN-LAST:event_radServidorBackupActionPerformed
 
@@ -2349,7 +2348,6 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     }//GEN-LAST:event_btnCsPararActionPerformed
 
     private void btnImediatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImediatoActionPerformed
-        // TODO add your handling code here:
         int linha = tblBkpAgendados.getSelectedRow();
         if (linha < 0) {
             JOptionPane.showMessageDialog(this, "Selecione uma linha!");
@@ -2364,7 +2362,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         if (linha >= 0 && flagRemove) {
             // Obtem o modelo da JTable e remove a linha
             ((DefaultTableModel) tblBkpAgendados.getModel()).removeRow(linha);
-            GravarBackupBancoLog.gravarLogError("ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!", ConfigBkp.getInstance());
+            GravarBackupBancoLog.gravarLogInformation("ConfigBkp:excluirThreadArquivo - linha excluida da tabela com sucesso!", ConfigBkp.getInstance());
         } else {
             JOptionPane.showMessageDialog(null, Acoes.SELECIONE_UMA_LINHA_PARA_REMOVELA);
         }
@@ -2372,9 +2370,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
 
     @Override
     public void detalheArquivo(BackupArquivo backupArquivo) {
-
         if (backupArquivo != null) {
-
             lblDbNome.setText(Acoes.NOME + ":            " + backupArquivo.getNome());
             lblDbIdentificador.setText(Acoes.IDENTIFICADOR + ":   " + backupArquivo.getIdentificador());
             lblDbDiaBackup.setText(Acoes.DIA_DO_BACKUP + ":   " + swingBackupArquivo.diasSemanaFormatado(backupArquivo));
@@ -2405,6 +2401,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     public void atualizarLogArquivo(String texto) {
         txaLog.append(texto);
         txaLog.append("\n");
+        limitarLinhasLogArquivo(this.txaLog);
     }
 
     @Override
@@ -2486,6 +2483,18 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     /*
      * Aqui fica os metodos que são criados pelo programador
      */
+    private void limitarLinhasLogArquivo(JTextArea txtWin) {
+        int numLinesToTrunk = txtWin.getLineCount() - SCROLL_BUFFER_SIZE;
+        if (numLinesToTrunk > 0) {
+            try {
+                int posOfLastLineToTrunk = txtWin.getLineEndOffset(numLinesToTrunk - 1);
+                txaLog.replaceRange("", 0, posOfLastLineToTrunk);
+            } catch (BadLocationException ex) {
+                GravarArquivoLog.gravarLogError(ex.getMessage(), this);
+            }
+        }
+    }
+    
     @Override
     public synchronized void atualizarLblQtdBkp(int valor, String classe) {
         if (classe.equals(SwingBackupArquivo.class.getSimpleName())) {
@@ -2609,6 +2618,8 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         //
         txaServidorLog.append(new GravarServidorLog().carregarArquivoTextoLog().toString());
         ((DefaultCaret) txaServidorLog.getCaret()).setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        
+        limitarLinhasLogArquivo(this.txaLog);
     }
 
     private void minimizeToTray() {
@@ -2657,8 +2668,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
             // Criando o tray icon e colocando o popup para o clique com o botão direito  
             trayIcon = new TrayIcon(imageIcon, Acoes.SGB_BACKUP, popup);
             //Auto-ajuste do tamanho  
-            trayIcon.setImageAutoSize(
-                    true);
+            trayIcon.setImageAutoSize(true);
             //Registrando o escutador para evento de clique com o botao esquerdo  
             trayIcon.addActionListener(actionListener);
             try {
@@ -2696,6 +2706,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     private String ftpPorta = "";
     private String ftpIp = "";
     private String ftpModoConexao = "";
+    private final int SCROLL_BUFFER_SIZE = 500;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAdicionar;

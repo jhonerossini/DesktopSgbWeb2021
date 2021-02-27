@@ -253,6 +253,7 @@ public class SwingBackupArquivo {
                         th.setName(kv.getBackupArquivo().getNome());
                         th.start();
                         CONFIG_BKP.situacaoBkpArquivo(linha, Acoes.INICIADO);
+                        GravarArquivoLog.gravarLogInformation(kv.getBackupArquivo().getNome() + " iniciado com sucesso!", ConfigBkp.getInstance());
                         try {
                             if (SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().isServidorAtivoInativo()) {
                                 SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().getRequisicaoRespostaCliente().acaoBkpWeb(Acoes.INICIAR, linha, null, null);
@@ -288,6 +289,7 @@ public class SwingBackupArquivo {
                         }
                         kv.pause();
                         CONFIG_BKP.situacaoBkpArquivo(linha, Acoes.PAUSADO);
+                        GravarArquivoLog.gravarLogInformation(kv.getBackupArquivo().getNome() + " pausado com sucesso!", ConfigBkp.getInstance());
                         try {
                             if (SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().isServidorAtivoInativo()) {
                                 SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().getRequisicaoRespostaCliente().acaoBkpWeb(Acoes.PAUSAR, linha, null, null);
@@ -336,6 +338,7 @@ public class SwingBackupArquivo {
                         }
                         kv.parar();
                         CONFIG_BKP.situacaoBkpArquivo(linha, Acoes.PARADO);
+                        GravarArquivoLog.gravarLogInformation(kv.getBackupArquivo().getNome() + " parado com sucesso!", ConfigBkp.getInstance());
                         try {
                             if (SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().isServidorAtivoInativo()) {
                                 SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().getRequisicaoRespostaCliente().acaoBkpWeb(Acoes.PARAR, linha, null, null);
@@ -358,24 +361,23 @@ public class SwingBackupArquivo {
     }
 
     public static void excluirThreadArquivo(int linha) {
-        GravarArquivoLog.gravarLogError("" + linha, ConfigBkp.getInstance());
         if (linha >= 0) {
             ArrayList<BackupArquivo> lista = BKP_ARQUIVO_XML.backupArquivo();
-            GravarArquivoLog.gravarLogError("tamanho da lista: " + lista.size(), ConfigBkp.getInstance());
+            GravarArquivoLog.gravarLogInformation("tamanho da lista: " + lista.size(), ConfigBkp.getInstance());
             if (lista.size() > 0) {
-                GravarArquivoLog.gravarLogError("lista é maior que zero!", ConfigBkp.getInstance());
+                GravarArquivoLog.gravarLogInformation("lista é maior que zero!", ConfigBkp.getInstance());
                 if (!LISTA_THREAD.isEmpty()) {
-                    GravarArquivoLog.gravarLogError("LISTA_THREAD.isEmpty(): " + LISTA_THREAD.isEmpty(), ConfigBkp.getInstance());
+                    GravarArquivoLog.gravarLogInformation("LISTA_THREAD.isEmpty(): " + LISTA_THREAD.isEmpty(), ConfigBkp.getInstance());
                     for (IniciarBackupArquivo kv : LISTA_THREAD) {
                         if (kv.getBackupArquivo().getIdentificador().equals(lista.get(linha).getIdentificador())) {
                             kv.parar();
-                            GravarArquivoLog.gravarLogError("thread parada com sucesso!", ConfigBkp.getInstance());
+                            GravarArquivoLog.gravarLogInformation("thread parada com sucesso!", ConfigBkp.getInstance());
                             LISTA_THREAD.remove(kv);
-                            GravarArquivoLog.gravarLogError("thread removida com sucesso!", ConfigBkp.getInstance());
+                            GravarArquivoLog.gravarLogInformation("thread removida com sucesso!", ConfigBkp.getInstance());
                             lista.remove(linha);
-                            GravarArquivoLog.gravarLogError("linha removida com sucesso!", ConfigBkp.getInstance());
+                            GravarArquivoLog.gravarLogInformation("linha removida com sucesso!", ConfigBkp.getInstance());
                             BKP_ARQUIVO_XML.criarBackupArquivo(lista);
-                            GravarArquivoLog.gravarLogError("xml atualizado com sucesso!", ConfigBkp.getInstance());
+                            GravarArquivoLog.gravarLogInformation("xml atualizado com sucesso!", ConfigBkp.getInstance());
                             CONFIG_BKP.excluirThreadArquivo(linha, true);
                             try {
                                 if (SwingBackupArquivo.CONFIGURACAO.getEscutaCliente().isServidorAtivoInativo()) {

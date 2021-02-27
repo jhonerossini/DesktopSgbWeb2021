@@ -11,10 +11,18 @@ import javax.mail.*;
  * @author Rosemary
  */
 public class Autenticacao extends Authenticator {
+    
+    private String email;
+    private String pass;
+    
+    public Autenticacao(String email, String pass){
+        this.email = email;
+        this.pass = pass;
+    }
 
     @Override
     protected PasswordAuthentication getPasswordAuthentication() {
         //return new PasswordAuthentication("jhone.rossini@outlook.com", "Avaj1991@1");
-        return new PasswordAuthentication("jhone.rossini@gmail.com", "avaj1608");
+        return new PasswordAuthentication(email, pass);
     }
 }

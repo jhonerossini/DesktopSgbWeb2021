@@ -62,7 +62,7 @@ public class GravarArquivoLog {
         return texto;
     }
 
-    public static void gravarLogWarning(String log, ConfigBkp configBkp) {
+    public synchronized static void gravarLogWarning(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
             info.append("Warn - ");
@@ -88,7 +88,7 @@ public class GravarArquivoLog {
         }
     }
 
-    public static void gravarLogError(String log, ConfigBkp configBkp) {
+    public synchronized static void gravarLogError(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
             info.append("Error - ");
@@ -116,7 +116,7 @@ public class GravarArquivoLog {
         }
     }
 
-    public static void gravarLogInformation(String log, ConfigBkp configBkp) {
+    public synchronized static void gravarLogInformation(String log, ConfigBkp configBkp) {
         dr = new DataReturn();
         try {
             info.append("Info - ");
@@ -143,7 +143,7 @@ public class GravarArquivoLog {
         }
     }
 
-    public static void gravarTodosLog(String log) {
+    public synchronized static void gravarTodosLog(String log) {
         dr = new DataReturn();
         try {
             info.append("error - ");

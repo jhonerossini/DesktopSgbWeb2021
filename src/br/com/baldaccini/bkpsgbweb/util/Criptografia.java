@@ -17,7 +17,7 @@ import java.util.Base64;
  */
 public class Criptografia {
     
-    public static String encrypt(String texto){
+    public static String encrypt(String texto, String baseEncode){
         return new String(Base64.getEncoder().encode(texto.getBytes()));
     }
     

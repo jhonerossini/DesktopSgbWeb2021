@@ -152,7 +152,7 @@ public class NovoLogin extends javax.swing.JFrame {
                 login.setUsuario(txt_nome.getText());
                 login.setEmail(txt_email.getText());
                 try {
-                    login.setPass(new String(Criptografia.encrypt(String.valueOf(pass_senha.getPassword()))));
+                    login.setPass(new String(Criptografia.encrypt(String.valueOf(pass_senha.getPassword()), txt_nome.getText())));
                 } catch (Exception ex) {
                     GravarArquivoLog.gravarTodosLog(ex.getMessage());
                     return;

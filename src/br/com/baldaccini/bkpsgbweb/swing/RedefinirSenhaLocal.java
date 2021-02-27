@@ -10,9 +10,8 @@ import br.com.baldaccini.bkpsgbweb.redefinirsenha.RedefinirSenhaEmail;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
+import br.com.baldaccini.bkpsgbweb.util.Util;
 import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jdom2.JDOMException;
 
 /**
@@ -139,10 +138,10 @@ public class RedefinirSenhaLocal extends javax.swing.JFrame {
     private void btnAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarSenhaActionPerformed
         if ((!String.valueOf(passSenhaAtual.getPassword()).equals("") && !String.valueOf(passConfNovaSenha.getPassword()).equals("")) && String.valueOf(passNovaSenha.getPassword()).equals(String.valueOf(passConfNovaSenha.getPassword()))) {
             LoginXML loginXML = new LoginXML();
-            if (loginXML.lerLogin().getPass().equals(Criptografia.encrypt(String.valueOf(passSenhaAtual.getPassword())))) {
+            if (loginXML.lerLogin().getPass().equals(Criptografia.encrypt(String.valueOf(passSenhaAtual.getPassword()), loginXML.lerLogin().getUsuario()))) {
                 try {
                     if (!String.valueOf(passSenhaAtual.getPassword()).equals(String.valueOf(passNovaSenha.getPassword()))) {
-                        if (loginXML.alterar(Criptografia.encrypt(String.valueOf(passNovaSenha.getPassword())))) {
+                        if (loginXML.alterar(Criptografia.encrypt(String.valueOf(passNovaSenha.getPassword()), loginXML.lerLogin().getUsuario()))) {
                             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
                             this.dispose();
                         } else {

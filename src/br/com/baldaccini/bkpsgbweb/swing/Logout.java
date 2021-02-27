@@ -100,7 +100,7 @@ public class Logout extends javax.swing.JDialog {
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
         Login login = new LoginXML().lerLogin();
-        if (login.getPass().equals(Criptografia.encrypt(String.valueOf(pswSenha.getPassword())))) {
+        if (login.getPass().equals(Criptografia.encrypt(String.valueOf(pswSenha.getPassword()), login.getUsuario()))) {
             int opcao = JOptionPane.showConfirmDialog(null, Acoes.VOCE_REALMENTE_DESEJA_SAIR_DO_SISTEMA, Acoes.CONFIRMACAO, JOptionPane.YES_NO_OPTION);
             if (opcao == 0) {
                 System.exit(0);

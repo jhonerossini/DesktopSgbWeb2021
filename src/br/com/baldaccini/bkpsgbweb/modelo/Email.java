@@ -16,6 +16,7 @@ public class Email {
     private String nomeRemet;
     private String assunto;
     private String corpo;
+    private String pass;
 
     /**
      * @return the emailDest
@@ -99,5 +100,19 @@ public class Email {
      */
     public void setCorpo(String corpo) {
         this.corpo = corpo;
+    }
+
+    /**
+     * @return the pass
+     */
+    public String getPass() {
+        return pass;
+    }
+
+    /**
+     * @param pass the pass to set
+     */
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }

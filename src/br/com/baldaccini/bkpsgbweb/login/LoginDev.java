@@ -24,7 +24,7 @@ public class LoginDev {
     public boolean realizarLogin(String nome, String senha) {
         if (nome != null && senha != null) {
             try {
-                if (nome.equals(login.getUsuario()) && Criptografia.encrypt(senha).equals(login.getPass())) {
+                if (nome.equals(login.getUsuario()) && Criptografia.encrypt(senha, login.getUsuario()).equals(login.getPass())) {
                     return true;
                 }
             } catch (Exception ex) {

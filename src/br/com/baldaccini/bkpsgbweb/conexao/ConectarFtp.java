@@ -72,6 +72,12 @@ public class ConectarFtp {
             if (Files.isDirectory(local)) {
                 // listamos todas as entradas do diretório
                 entradas = Files.newDirectoryStream(local);
+            }else{
+                try (FileInputStream fis = new FileInputStream(local.toFile())) {
+                    ftp.storeFile(local.toFile().getName(), fis);
+                }
+                Files.delete(local);
+                return true;
             }
             String dir = "";
             String dirLinux = "";

@@ -72,8 +72,8 @@ public class CompactarPasta {
                  ziparFile(file1, dirInterno, zipDestino);
                  }
                  }*/
+                zipDestino.flush();
                 zipDestino.finish();
-                zipDestino.close();
             }
         } catch (IOException ex) {
             GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
@@ -112,8 +112,8 @@ public class CompactarPasta {
             ra.gravarRelatorio(this.nomeBackupArquivo, file.getName(), file.getParent(), dirInterno + File.separator + file.getName(), file.length(), dtr.sysDataPath() + " " + dtr.horaMinSeg());
             int count;
             while ((count = fi.read(data)) > 0) {
-                //zipDestino.write(data, 0, count);
-                zipDestino.write(data);
+                zipDestino.write(data, 0, count);
+                //zipDestino.write(data);
             }
             zipDestino.flush();
             zipDestino.closeEntry();

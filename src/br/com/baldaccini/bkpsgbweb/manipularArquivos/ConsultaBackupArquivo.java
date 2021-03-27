@@ -19,8 +19,8 @@ import java.io.IOException;
  */
 public class ConsultaBackupArquivo {
 
-    private BackupArquivo backup;
-    private ManipularArquivos ma;
+    private final BackupArquivo backup;
+    private final ManipularArquivos ma;
     private final CompactarPasta cp;
     private final DataReturn dr;
 
@@ -46,17 +46,19 @@ public class ConsultaBackupArquivo {
                 ma.copiarArquivosAlteradosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
                 //verifica se é backup normal
             } else if (backup.getNormal()) {
-                if(!"".equals(backup.getHost())){
-                    backupNormalComFtp();
-                }else{
-                    ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                String destinoZip = "";
+                if(backup.getCompactar()){
+                    destinoZip = compactar();
                 }
-            }
-            //verifica se é para compactar
-            if (backup.getCompactar()) {
-                String destinoZip = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
-                cp.zipar(backup.getLocal(), destinoZip);
-                ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(destinoZip).toPath());
+                if(!"".equals(backup.getHost())){
+                    backupNormalComFtp(destinoZip);
+                }else{
+                    if(!"".equals(destinoZip)){
+                        ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                    }else{
+                        ma.copiarArquivosNovos(new File(destinoZip).toPath(), new File(backup.getDestino() + new File(destinoZip).getName()).toPath());
+                    }
+                }
             }
             return;
         }
@@ -68,18 +70,27 @@ public class ConsultaBackupArquivo {
                             ma.copiarArquivosAlteradosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
                             //verifica se é backup normal
                         } else if (backup.getNormal()) {
+                            String destinoZip = "";
+                            if(backup.getCompactar()){
+                                destinoZip = compactar();
+                            }
                             if(!"".equals(backup.getHost())){
-                                backupNormalComFtp();
+                                backupNormalComFtp(destinoZip);
+                                destinoZip = "";
                             }else{
-                                ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                                if(!"".equals(destinoZip)){
+                                    ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                                }else{
+                                    ma.copiarArquivosNovos(new File(destinoZip).toPath(), new File(backup.getDestino() + new File(destinoZip).getName()).toPath());
+                                }
                             }
                         }
                         //verifica se é para compactar
-                        if (backup.getCompactar()) {
-                            String destinoZip = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
-                            cp.zipar(backup.getLocal(), destinoZip);
-                            ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(destinoZip).toPath());
-                        }
+//                        if (backup.getCompactar()) {
+//                            String destinoZip = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
+//                            cp.zipar(backup.getLocal(), destinoZip);
+//                            ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(destinoZip).toPath());
+//                        }
                     }
                 } else if (backup.getFlagSemana()) {
                     if (dr.compararDataAntes(backup.getDataBackupAgendado())) {
@@ -89,17 +100,20 @@ public class ConsultaBackupArquivo {
                                     ma.copiarArquivosAlteradosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
                                     //verifica se é backup normal
                                 } else if (backup.getNormal()) {
-                                    if(!"".equals(backup.getHost())){
-                                        backupNormalComFtp();
-                                    }else{
-                                        ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                                    String destinoZip = "";
+                                    if(backup.getCompactar()){
+                                        destinoZip = compactar();
                                     }
-                                }
-                                //verifica se é para compactar
-                                if (backup.getCompactar()) {
-                                    String destinoZip = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
-                                    cp.zipar(backup.getLocal(), destinoZip);
-                                    ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(destinoZip).toPath());
+                                    if(!"".equals(backup.getHost())){
+                                        backupNormalComFtp(destinoZip);
+                                        destinoZip = "";
+                                    }else{
+                                        if(!"".equals(destinoZip)){
+                                            ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                                        }else{
+                                            ma.copiarArquivosNovos(new File(destinoZip).toPath(), new File(backup.getDestino() + new File(destinoZip).getName()).toPath());
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -115,17 +129,19 @@ public class ConsultaBackupArquivo {
                             ma.copiarArquivosAlteradosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
                             //verifica se é backup normal
                         } else if (backup.getNormal()) {
-                            if(!"".equals(backup.getHost())){
-                                backupNormalComFtp();
-                            }else{
-                                ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                            String destinoZip = "";
+                            if(backup.getCompactar()){
+                                destinoZip = compactar();
                             }
-                        }
-                        //verifica se é para compactar
-                        if (backup.getCompactar()) {
-                            String destinoZip = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
-                            cp.zipar(backup.getLocal(), destinoZip);
-                            ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(destinoZip).toPath());
+                            if(!"".equals(backup.getHost())){
+                                backupNormalComFtp(destinoZip);
+                            }else{
+                                if(!"".equals(backup.getCompactar() ? compactar() : "")){
+                                    ma.copiarArquivosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
+                                }else{
+                                    ma.copiarArquivosNovos(new File(destinoZip).toPath(), new File(backup.getDestino() + new File(destinoZip).getName()).toPath());
+                                }
+                            }
                         }
                     }
                 }
@@ -148,16 +164,35 @@ public class ConsultaBackupArquivo {
         return false;
     }
     
-    private void backupNormalComFtp(){
+    private String compactar(){
+        String destinoZip = "";
+        //verifica se é para compactar
+        if (backup.getCompactar()) {
+            String destinoZipLocal = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
+            destinoZip = "C:\\temp" + destinoZipLocal;
+            if(!new File(destinoZip).exists()){
+                if(!cp.zipar(backup.getLocal(), destinoZip)){
+                    destinoZip = "";
+                }
+            }
+        }
+        return destinoZip;
+    }
+    
+    private void backupNormalComFtp(String destinoZip){
         String ip = backup.getHost();
         String porta = backup.getPorta();
         String usuario = backup.getUsuario();
-        String senha = "debian";//backup.getSenha();
+        String senha = "123456780";//backup.getSenha();
         String modoPassivo = backup.getModoConexao();
         ConectarFtp conexaoFtp = new ConectarFtp();
         conexaoFtp.conectar(ip, porta != null && !"".equals(porta) ? Integer.parseInt(porta) : 21, usuario, senha, backup.getDestino(), (modoPassivo != null && !"".equals(modoPassivo) ? "true".equals(modoPassivo) : false));
         try {
-            conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), backup.getDestino());
+            if("".equals(destinoZip)){
+                conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), backup.getDestino());
+            }else{
+                conexaoFtp.enviarArquivo(new File(destinoZip).toPath(), backup.getDestino());
+            }
         } catch (IOException ex) {
             GravarArquivoLog.gravarLogInformation(ex.getMessage(), ConfigBkp.getInstance());
             System.out.println(ex.getMessage());

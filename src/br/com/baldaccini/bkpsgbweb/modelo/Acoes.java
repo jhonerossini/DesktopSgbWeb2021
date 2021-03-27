@@ -85,5 +85,6 @@ public class Acoes {
     public static String SEXTA = "Sexta";
     public static String SABADO = "Sábado";
     public static String DOMINGO = "Domingo";
+    public static String SEM_COMPACTAR = "";
 
 }

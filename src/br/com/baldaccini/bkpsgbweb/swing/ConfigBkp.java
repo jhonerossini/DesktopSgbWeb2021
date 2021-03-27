@@ -2154,6 +2154,10 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
             if (chkNormal.isSelected()) {
                 chkNormal.setSelected(false);
             }
+            if(chkCompactar.isSelected()){
+               chkCompactar.setSelected(false);
+               chkIncremental.setSelected(true);
+            }
         } else if (!chkNormal.isSelected() && !chkCompactar.isSelected()) {
             chkIncremental.setSelected(true);
         }
@@ -2329,6 +2333,9 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
 
     private void chkCompactarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCompactarActionPerformed
         if (!chkIncremental.isSelected() && !chkNormal.isSelected()) {
+            chkCompactar.setSelected(true);
+        }else if(chkIncremental.isSelected()){
+            chkIncremental.setSelected(false);
             chkCompactar.setSelected(true);
         }
     }//GEN-LAST:event_chkCompactarActionPerformed

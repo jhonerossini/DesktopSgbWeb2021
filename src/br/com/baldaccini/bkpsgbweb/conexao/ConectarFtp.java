@@ -65,6 +65,7 @@ public class ConectarFtp {
     }
     
     private boolean enviarArquivoCall(Path local){
+        File file = null;
         try {
             if(destinoRaiz){
                 destinoRaiz = false;
@@ -73,14 +74,15 @@ public class ConectarFtp {
                 // listamos todas as entradas do diretório
                 entradas = Files.newDirectoryStream(local);
             }else{
+                //Se não for diretorio então é um arquivo, enviamos apenas ele
                 try (FileInputStream fis = new FileInputStream(local.toFile())) {
                     ftp.storeFile(local.toFile().getName(), fis);
                 }
                 Files.delete(local);
                 return true;
             }
-            String dir = "";
-            String dirLinux = "";
+            String dir;
+            String dirLinux;
             for (Path entrada : entradas) {
                 if(Files.isDirectory(entrada, LinkOption.NOFOLLOW_LINKS)){
                     dirLinux = entrada.getFileName().toString();
@@ -95,7 +97,7 @@ public class ConectarFtp {
                     enviarArquivoCall(entrada);
                 }else{
                     dir = entrada.getParent()+File.separator+entrada.getFileName();
-                    File file = new File(dir);
+                    file = new File(dir);
                     InputStream is = new FileInputStream(file);
                     GravarArquivoLog.gravarLogInformation("Enviando arquivo...", ConfigBkp.getInstance());
                     ftp.storeFile(file.getName(), is);
@@ -104,7 +106,7 @@ public class ConectarFtp {
             }
             ftp.changeWorkingDirectory("../");
         }catch(IOException ex){
-            GravarArquivoLog.gravarLogInformation("Falha ao enviar arquivo: " + ex.getMessage(), ConfigBkp.getInstance());
+            GravarArquivoLog.gravarLogInformation("Falha ao enviar arquivo: " + (file != null ? file.getName() : "") + " " + ex.getMessage(), ConfigBkp.getInstance());
             return false;
         }
         return true;
@@ -113,6 +115,11 @@ public class ConectarFtp {
     public void enviarArquivo(Path local, String destino) throws IOException{
         if(destino != null && !"".equals(destino)){
             ftp.changeWorkingDirectory(destino);
+            String dirRaiz = local.getFileName().toString();
+            if(!local.toFile().isFile() && !ftp.changeWorkingDirectory(dirRaiz)){
+                ftp.makeDirectory(dirRaiz);
+                ftp.changeWorkingDirectory(dirRaiz);
+            }
         }
         enviarArquivoCall(local);
     }

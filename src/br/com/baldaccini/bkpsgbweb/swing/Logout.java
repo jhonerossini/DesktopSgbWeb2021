@@ -17,16 +17,10 @@ import javax.swing.JOptionPane;
  */
 public class Logout extends javax.swing.JDialog {
 
-    private ConfigBkp configBkp;
-
-    /**
-     * Creates new form Logout
-     */
-    public Logout(ConfigBkp configBkp) {
+    public Logout() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setModal(true);
-        this.configBkp = configBkp;
     }
 
     /**

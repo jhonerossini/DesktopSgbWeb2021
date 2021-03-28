@@ -2525,36 +2525,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         txaBdLog.append(texto);
         txaBdLog.append("\n");
     }
-
-    /*
-     * Aqui fica os metodos que são criados pelo programador
-     */
-    private void limitarLinhasLogArquivo(JTextArea txtWin) {
-        int numLinesToTrunk = txtWin.getLineCount() - SCROLL_BUFFER_SIZE;
-        if (numLinesToTrunk > 0) {
-            try {
-                int posOfLastLineToTrunk = txtWin.getLineEndOffset(numLinesToTrunk - 1);
-                txaLog.replaceRange("", 0, posOfLastLineToTrunk);
-            } catch (BadLocationException ex) {
-                GravarArquivoLog.gravarLogError(ex.getMessage(), this);
-            }
-        }
-    }
     
-    @Override
-    public synchronized void atualizarLblQtdBkp(int valor, String classe) {
-        if (classe.equals(SwingBackupArquivo.class.getSimpleName())) {
-            qtdBkpArquivo = valor;
-        } else if (classe.equals(SwingBackupBancoDados.class.getSimpleName())) {
-            qtdBkpBancoDados = valor;
-        }
-        lblQtdBkpFlag.setText(String.valueOf(qtdBkpArquivo + qtdBkpBancoDados));
-    }
-
-    public void setDestino(String destino) {
-        txtDestino.setText(destino);
-    }
-
     @Override
     public void iniciarThreadArquivo(int linhaTbl) {
         swingBackupArquivo.iniciarThreadArquivo(linhaTbl);
@@ -2575,6 +2546,35 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         SwingBackupArquivo.excluirThreadArquivo(linhaTbl);
     }
     
+    @Override
+    public synchronized void atualizarLblQtdBkp(int valor, String classe) {
+        if (classe.equals(SwingBackupArquivo.class.getSimpleName())) {
+            qtdBkpArquivo = valor;
+        } else if (classe.equals(SwingBackupBancoDados.class.getSimpleName())) {
+            qtdBkpBancoDados = valor;
+        }
+        lblQtdBkpFlag.setText(String.valueOf(qtdBkpArquivo + qtdBkpBancoDados));
+    }
+
+    /*
+     * Aqui fica os metodos que são criados pelo programador
+     */
+    private void limitarLinhasLogArquivo(JTextArea txtWin) {
+        int numLinesToTrunk = txtWin.getLineCount() - SCROLL_BUFFER_SIZE;
+        if (numLinesToTrunk > 0) {
+            try {
+                int posOfLastLineToTrunk = txtWin.getLineEndOffset(numLinesToTrunk - 1);
+                txaLog.replaceRange("", 0, posOfLastLineToTrunk);
+            } catch (BadLocationException ex) {
+                GravarArquivoLog.gravarLogError(ex.getMessage(), this);
+            }
+        }
+    }
+
+    public void setDestino(String destino) {
+        txtDestino.setText(destino);
+    }
+
     public String getFtpModoConexao(){
         return this.ftpModoConexao;
     }

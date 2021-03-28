@@ -51,7 +51,7 @@ public class CompactarPasta {
             File file = new File(endEntrada);
             //Verifica se o arquivo ou diretório existe  
             if (!file.exists()) {
-                GravarArquivoLog.gravarLogError("msg.erro.zip-001", ConfigBkp.getInstance());
+                GravarArquivoLog.gravarLogWarning("Arquivo não existe: " + file.getName(), ConfigBkp.getInstance());
                 return false;
             }
             //se é um arquivo a ser zipado
@@ -76,7 +76,7 @@ public class CompactarPasta {
                 zipDestino.finish();
             }
         } catch (IOException ex) {
-            GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
+            GravarArquivoLog.gravarLogError("CompactarPasta -> zipar: " + ex.getMessage(), ConfigBkp.getInstance());
             GravarArquivoLog.gravarLogError("msg.erro.zip-002", ConfigBkp.getInstance());
             retorno = false;
         }
@@ -109,12 +109,12 @@ public class CompactarPasta {
 
         try (FileInputStream fi = new FileInputStream(file.getAbsolutePath())) {
             zipDestino.putNextEntry(new ZipEntry(dirInterno + File.separator + file.getName()));
-            ra.gravarRelatorio(this.nomeBackupArquivo, file.getName(), file.getParent(), dirInterno + File.separator + file.getName(), file.length(), dtr.sysDataPath() + " " + dtr.horaMinSeg());
             int count;
             while ((count = fi.read(data)) > 0) {
                 zipDestino.write(data, 0, count);
                 //zipDestino.write(data);
             }
+            ra.gravarRelatorio(this.nomeBackupArquivo, file.getName(), file.getParent(), dirInterno + File.separator + file.getName(), file.length(), dtr.sysDataPath() + " " + dtr.horaMinSeg());
             zipDestino.flush();
             zipDestino.closeEntry();
         }

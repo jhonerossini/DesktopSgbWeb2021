@@ -273,11 +273,11 @@
                                       <Component id="lblDescricaoBackup" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="pnlData" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
                                           <Component id="pnlHora" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="435" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -519,7 +519,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="chkSegunda" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="chkTerca" min="-2" max="-2" attributes="0"/>
@@ -533,7 +533,7 @@
                                       <Component id="chkSabado" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="chkDomingo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="chkContinuarBackup" min="-2" max="-2" attributes="0"/>
@@ -903,6 +903,8 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnImediato" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblStatusAcaoBackupArquivo" min="-2" pref="232" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnIniciarThread" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -930,11 +932,14 @@
                               <Component id="btnDetalhe" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnParar" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnPausar" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnIniciarThread" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btnImediato" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btnIniciarThread" pref="38" max="32767" attributes="0"/>
+                                      <Component id="lblStatusAcaoBackupArquivo" max="32767" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="btnImediato" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblInformacao" min="-2" max="-2" attributes="0"/>
@@ -957,7 +962,7 @@
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="0" rowCount="0"/>
                         </Property>
-                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="tblBkpAgendados.setModel(new DefaultTableModel(new String[][]{}, new String[]{&quot;Nome&quot;, &quot;Data&quot;, &quot;Hora&quot;, &quot;Seg&quot;, &quot;Ter&quot;, &quot;Qua&quot;, &quot;Qui&quot;, &quot;Sex&quot;, &quot;Sab&quot;, &quot;Dom&quot;, &quot;Estado&quot;}));&#xa;tblBkpAgendados.getColumnModel().getColumn(0).setPreferredWidth(20);//nome&#xa;tblBkpAgendados.getColumnModel().getColumn(1).setPreferredWidth(20);//data&#xa;tblBkpAgendados.getColumnModel().getColumn(2).setPreferredWidth(20);//hora&#xa;tblBkpAgendados.getColumnModel().getColumn(3).setPreferredWidth(5);//seg&#xa;tblBkpAgendados.getColumnModel().getColumn(4).setPreferredWidth(5);//ter&#xa;tblBkpAgendados.getColumnModel().getColumn(5).setPreferredWidth(5);//qua&#xa;tblBkpAgendados.getColumnModel().getColumn(6).setPreferredWidth(5);//qui&#xa;tblBkpAgendados.getColumnModel().getColumn(7).setPreferredWidth(5);//sex&#xa;tblBkpAgendados.getColumnModel().getColumn(8).setPreferredWidth(5);//sab&#xa;tblBkpAgendados.getColumnModel().getColumn(9).setPreferredWidth(5);//dom&#xa;tblBkpAgendados.getColumnModel().getColumn(10).setPreferredWidth(50);//Estado">
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="tblBkpAgendados.setModel(new DefaultTableModel(new String[][]{}, new String[]{&quot;Nome&quot;, &quot;Data&quot;, &quot;Hora&quot;, &quot;Seg&quot;, &quot;Ter&quot;, &quot;Qua&quot;, &quot;Qui&quot;, &quot;Sex&quot;, &quot;Sab&quot;, &quot;Dom&quot;, &quot;Estado&quot;}));&#xa;tblBkpAgendados.getColumnModel().getColumn(0).setPreferredWidth(40);//nome&#xa;tblBkpAgendados.getColumnModel().getColumn(1).setPreferredWidth(10);//data&#xa;tblBkpAgendados.getColumnModel().getColumn(2).setPreferredWidth(5);//hora&#xa;tblBkpAgendados.getColumnModel().getColumn(3).setPreferredWidth(5);//seg&#xa;tblBkpAgendados.getColumnModel().getColumn(4).setPreferredWidth(5);//ter&#xa;tblBkpAgendados.getColumnModel().getColumn(5).setPreferredWidth(5);//qua&#xa;tblBkpAgendados.getColumnModel().getColumn(6).setPreferredWidth(5);//qui&#xa;tblBkpAgendados.getColumnModel().getColumn(7).setPreferredWidth(5);//sex&#xa;tblBkpAgendados.getColumnModel().getColumn(8).setPreferredWidth(5);//sab&#xa;tblBkpAgendados.getColumnModel().getColumn(9).setPreferredWidth(5);//dom&#xa;tblBkpAgendados.getColumnModel().getColumn(10).setPreferredWidth(10);//Estado">
                           <TableColumnModel selectionModel="0"/>
                         </Property>
                         <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1080,6 +1085,8 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImediatoActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JLabel" name="lblStatusAcaoBackupArquivo">
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pnlDetalheBackup">
@@ -1103,10 +1110,10 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="182" max="32767" attributes="0"/>
+                          <EmptySpace pref="65" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1124,10 +1131,10 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane4" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane4" pref="1037" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblDbIdentificador" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1139,8 +1146,12 @@
                                           <Component id="lblDbDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblDbLocalBackp" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblDbDestinoBackup" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDbHostBackup" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDbUsuarioBackup" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDbPortaBackup" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDbDataBackup" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="753" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1157,6 +1168,8 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblDbDiaBackup" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblDbDataBackup" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="13" max="32767" attributes="0"/>
                               <Component id="lblDbDataCriacao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblDbHoraBackup" min="-2" max="-2" attributes="0"/>
@@ -1166,10 +1179,16 @@
                               <Component id="lblDbLocalBackp" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblDbDestinoBackup" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblDbHostBackup" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblDbUsuarioBackup" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblDbPortaBackup" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblDbDescricao" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" pref="56" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" min="-2" pref="88" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1270,6 +1289,26 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JLabel" name="lblDbHostBackup">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Host:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblDbUsuarioBackup">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Usuario:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblDbPortaBackup">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Porta:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblDbDataBackup">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Data do Backup:"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>

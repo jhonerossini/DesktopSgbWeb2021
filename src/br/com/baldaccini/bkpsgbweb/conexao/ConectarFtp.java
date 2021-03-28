@@ -60,6 +60,7 @@ public class ConectarFtp {
             }
         } catch (IOException ex) {
             GravarArquivoLog.gravarTodosLog("IOException: " + ex.getMessage());
+            ftp = null;
         }
         return ftp;
     }

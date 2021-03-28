@@ -43,6 +43,7 @@ public class ConsultaBackupArquivo {
 
     public synchronized void iniciarBackupArquivo(boolean imediato) {
         if (imediato) {
+            ConfigBkp.getInstance().atualizarStatusBkpArquivo();
             if (backup.getBkpIncremental()) {
                 ma.copiarArquivosAlteradosNovos(new File(backup.getLocal()).toPath(), new File(backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-")).toPath());
                 //verifica se é backup normal
@@ -184,7 +185,7 @@ public class ConsultaBackupArquivo {
         //verifica se é para compactar
         String destinoZipLocal = backup.getDestino() + backup.getNome() + BKP + backup.getDataBackupAgendado() + "_" + backup.getHoraMin().replace(":", "-") + ".zip";
         if (localExterno) {
-            destinoZip = "C:\\temp" + destinoZipLocal;
+            destinoZip = System.getProperty("os.name").contains("Windows") ? "C:\\temp" + destinoZipLocal : "/tmp" + destinoZipLocal;
         } else {
             destinoZip = destinoZipLocal;
         }
@@ -203,16 +204,19 @@ public class ConsultaBackupArquivo {
         String senha = "123456780";//backup.getSenha();
         String modoPassivo = backup.getModoConexao();
         ConectarFtp conexaoFtp = new ConectarFtp();
-        conexaoFtp.conectar(ip, porta != null && !"".equals(porta) ? Integer.parseInt(porta) : 21, usuario, senha, backup.getDestino(), (modoPassivo != null && !"".equals(modoPassivo) ? "true".equals(modoPassivo) : false));
-        try {
-            if ("".equals(destinoZip)) {
-                conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), backup.getDestino());
-            } else {
-                conexaoFtp.enviarArquivo(new File(destinoZip).toPath(), backup.getDestino());
+        if(null != conexaoFtp.conectar(ip, porta != null && !"".equals(porta) ? Integer.parseInt(porta) : 21, usuario, senha, backup.getDestino(), (modoPassivo != null && !"".equals(modoPassivo) ? "true".equals(modoPassivo) : false))){
+            try {
+                if ("".equals(destinoZip)) {
+                    conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), backup.getDestino());
+                } else {
+                    conexaoFtp.enviarArquivo(new File(destinoZip).toPath(), backup.getDestino());
+                }
+            } catch (IOException ex) {
+                GravarArquivoLog.gravarLogInformation(ex.getMessage(), ConfigBkp.getInstance());
+                System.out.println(ex.getMessage());
             }
-        } catch (IOException ex) {
-            GravarArquivoLog.gravarLogInformation(ex.getMessage(), ConfigBkp.getInstance());
-            System.out.println(ex.getMessage());
+        }else{
+            GravarArquivoLog.gravarLogInformation("Não foi possivel conectar com o servidor FTP.", ConfigBkp.getInstance());
         }
     }
 }

@@ -178,6 +178,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         btnPausar = new javax.swing.JButton();
         btnParar = new javax.swing.JButton();
         btnImediato = new javax.swing.JButton();
+        lblStatusAcaoBackupArquivo = new javax.swing.JLabel();
         pnlDetalheBackup = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblDbIdentificador = new javax.swing.JLabel();
@@ -191,6 +192,10 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         lblDbDataCriacao = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txaDbDescricao = new javax.swing.JTextArea();
+        lblDbHostBackup = new javax.swing.JLabel();
+        lblDbUsuarioBackup = new javax.swing.JLabel();
+        lblDbPortaBackup = new javax.swing.JLabel();
+        lblDbDataBackup = new javax.swing.JLabel();
         tpLog = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txaLog = new javax.swing.JTextArea();
@@ -512,7 +517,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                 .addContainerGap()
                 .addGroup(pnlDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataLayout.createSequentialGroup()
-                        .addGap(0, 44, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(chkSegunda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(chkTerca)
@@ -526,7 +531,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                         .addComponent(chkSabado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(chkDomingo)
-                        .addGap(117, 117, 117))
+                        .addContainerGap())
                     .addGroup(pnlDataLayout.createSequentialGroup()
                         .addComponent(chkContinuarBackup)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -657,9 +662,9 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                             .addComponent(lblDescricaoBackup)
                             .addGroup(pnlAgendarBackupLayout.createSequentialGroup()
                                 .addComponent(pnlData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pnlHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 28, Short.MAX_VALUE)))
+                        .addGap(0, 435, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlAgendarBackupLayout.setVerticalGroup(
@@ -726,9 +731,9 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         tblBkpAgendados.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblBkpAgendados);
         tblBkpAgendados.setModel(new DefaultTableModel(new String[][]{}, new String[]{"Nome", "Data", "Hora", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom", "Estado"}));
-        tblBkpAgendados.getColumnModel().getColumn(0).setPreferredWidth(20);//nome
-        tblBkpAgendados.getColumnModel().getColumn(1).setPreferredWidth(20);//data
-        tblBkpAgendados.getColumnModel().getColumn(2).setPreferredWidth(20);//hora
+        tblBkpAgendados.getColumnModel().getColumn(0).setPreferredWidth(40);//nome
+        tblBkpAgendados.getColumnModel().getColumn(1).setPreferredWidth(10);//data
+        tblBkpAgendados.getColumnModel().getColumn(2).setPreferredWidth(5);//hora
         tblBkpAgendados.getColumnModel().getColumn(3).setPreferredWidth(5);//seg
         tblBkpAgendados.getColumnModel().getColumn(4).setPreferredWidth(5);//ter
         tblBkpAgendados.getColumnModel().getColumn(5).setPreferredWidth(5);//qua
@@ -736,7 +741,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         tblBkpAgendados.getColumnModel().getColumn(7).setPreferredWidth(5);//sex
         tblBkpAgendados.getColumnModel().getColumn(8).setPreferredWidth(5);//sab
         tblBkpAgendados.getColumnModel().getColumn(9).setPreferredWidth(5);//dom
-        tblBkpAgendados.getColumnModel().getColumn(10).setPreferredWidth(50);//Estado
+        tblBkpAgendados.getColumnModel().getColumn(10).setPreferredWidth(10);//Estado
 
         btn_deletar.setBackground(new java.awt.Color(0, 51, 153));
         btn_deletar.setForeground(new java.awt.Color(255, 255, 255));
@@ -805,6 +810,8 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackupAgendadoLayout.createSequentialGroup()
                         .addComponent(btnImediato)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblStatusAcaoBackupArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnIniciarThread)
                         .addGap(18, 18, 18)
@@ -828,10 +835,12 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                     .addComponent(btnDetalhe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnParar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPausar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnImediato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlBackupAgendadoLayout.createSequentialGroup()
-                        .addComponent(btnIniciarThread, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnImediato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pnlBackupAgendadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnIniciarThread, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                            .addComponent(lblStatusAcaoBackupArquivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(lblInformacao)
                 .addGap(35, 35, 35))
@@ -867,6 +876,14 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         txaDbDescricao.setFocusable(false);
         jScrollPane4.setViewportView(txaDbDescricao);
 
+        lblDbHostBackup.setText("Host:");
+
+        lblDbUsuarioBackup.setText("Usuario:");
+
+        lblDbPortaBackup.setText("Porta:");
+
+        lblDbDataBackup.setText("Data do Backup:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -874,7 +891,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDbIdentificador)
@@ -885,8 +902,12 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                             .addComponent(lblDbDataCriacao)
                             .addComponent(lblDbDescricao)
                             .addComponent(lblDbLocalBackp)
-                            .addComponent(lblDbDestinoBackup))
-                        .addGap(0, 753, Short.MAX_VALUE)))
+                            .addComponent(lblDbDestinoBackup)
+                            .addComponent(lblDbHostBackup)
+                            .addComponent(lblDbUsuarioBackup)
+                            .addComponent(lblDbPortaBackup)
+                            .addComponent(lblDbDataBackup))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -899,6 +920,8 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDbDiaBackup)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDbDataBackup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(lblDbDataCriacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDbHoraBackup)
@@ -908,10 +931,16 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                 .addComponent(lblDbLocalBackp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDbDestinoBackup)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDbHostBackup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDbUsuarioBackup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDbPortaBackup)
+                .addGap(18, 18, 18)
                 .addComponent(lblDbDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -926,10 +955,10 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         );
         pnlDetalheBackupLayout.setVerticalGroup(
             pnlDetalheBackupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalheBackupLayout.createSequentialGroup()
+            .addGroup(pnlDetalheBackupLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         tbConfigBackup.addTab("Detalhe do Backup", pnlDetalheBackup);
@@ -1895,7 +1924,10 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
 
     private void btn_deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deletarActionPerformed
         if (tblBkpAgendados.getSelectedRow() >= 0) {
+            if(JOptionPane.showConfirmDialog(this, "Deseja realmente excluir o backup?", "Excluir Backup", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE) == 0)
             SwingBackupArquivo.excluirThreadArquivo(tblBkpAgendados.getSelectedRow());
+        }else{
+            JOptionPane.showMessageDialog(this, "Selecione uma linha para remover!");
         }
     }//GEN-LAST:event_btn_deletarActionPerformed
 
@@ -2378,29 +2410,36 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     @Override
     public void detalheArquivo(BackupArquivo backupArquivo) {
         if (backupArquivo != null) {
-            lblDbNome.setText(Acoes.NOME + ":            " + backupArquivo.getNome());
-            lblDbIdentificador.setText(Acoes.IDENTIFICADOR + ":   " + backupArquivo.getIdentificador());
-            lblDbDiaBackup.setText(Acoes.DIA_DO_BACKUP + ":   " + swingBackupArquivo.diasSemanaFormatado(backupArquivo));
+            lblDbNome.setText(Acoes.NOME + ": " + backupArquivo.getNome());
+            lblDbIdentificador.setText(Acoes.IDENTIFICADOR + ": " + backupArquivo.getIdentificador());
+            lblDbDiaBackup.setText(Acoes.DIA_DO_BACKUP + ": " + swingBackupArquivo.diasSemanaFormatado(backupArquivo));
             lblDbDataCriacao.setText(Acoes.DATA_DA_CRIACAO + ": " + backupArquivo.getDataCriacao().replace("-", "/"));
-            lblDbHoraBackup.setText(Acoes.HORA_DO_BACKUP + ":  " + backupArquivo.getHoraMin());
-            if (backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && backupArquivo.getNormal()) {
-                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ":  Incremental, Compactar e Reverso");
-            } else if (backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && !backupArquivo.getNormal()) {
-                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ":  Incremental e Compactar");
-            } else if (backupArquivo.getBkpIncremental() && !backupArquivo.getCompactar() && !backupArquivo.getNormal()) {
-                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ":  Incremental");
-            } else if (!backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && backupArquivo.getNormal()) {
-                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ":  Compactar e Reverso");
-            } else if (!backupArquivo.getBkpIncremental() && !backupArquivo.getCompactar() && backupArquivo.getNormal()) {
-                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ":  Reverso");
-            } else if (!backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && !backupArquivo.getNormal()) {
-                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ":  Compactar");
-            }
-            lblDbLocalBackp.setText(Acoes.LOCAL + ":           " + backupArquivo.getLocal());
-            lblDbDestinoBackup.setText(Acoes.DESTINO + ":        " + backupArquivo.getDestino());
+            lblDbHoraBackup.setText(Acoes.HORA_DO_BACKUP + ": " + backupArquivo.getHoraMin());
+            lblDbDataBackup.setText(Acoes.DATA_DO_BACKUP + ": " + backupArquivo.getDataBackupAgendado().replace("-","/"));
+            
+            lblDbLocalBackp.setText(Acoes.LOCAL + ": " + backupArquivo.getLocal());
+            lblDbDestinoBackup.setText(Acoes.DESTINO + ": " + backupArquivo.getDestino());
 
+            lblDbHostBackup.setText(Acoes.HOST + ": " + backupArquivo.getHost());
+            lblDbUsuarioBackup.setText(Acoes.USUARIO + ": " + backupArquivo.getUsuario());
+            lblDbPortaBackup.setText(Acoes.PORTA + ": " + backupArquivo.getPorta());
+            
             txaDbDescricao.setText(backupArquivo.getDescricao());
             tbConfigBackup.setSelectedIndex(2);
+            
+            if (backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && backupArquivo.getNormal()) {
+                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ": Incremental, Compactar e Normal");
+            } else if (backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && !backupArquivo.getNormal()) {
+                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ": Incremental e Compactar");
+            } else if (backupArquivo.getBkpIncremental() && !backupArquivo.getCompactar() && !backupArquivo.getNormal()) {
+                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ": Incremental");
+            } else if (!backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && backupArquivo.getNormal()) {
+                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ": Compactar e Normal");
+            } else if (!backupArquivo.getBkpIncremental() && !backupArquivo.getCompactar() && backupArquivo.getNormal()) {
+                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ": Normal");
+            } else if (!backupArquivo.getBkpIncremental() && backupArquivo.getCompactar() && !backupArquivo.getNormal()) {
+                lblDbTipoBackup.setText(Acoes.TIPO_DO_BACKUP + ": Compactar");
+            }
         }
     }
 
@@ -2574,6 +2613,21 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     
     public void setFtpSenha(String ftpSenha){
         this.ftpSenha = ftpSenha;
+    }
+    
+    public void atualizarStatusBkpArquivo(){
+        Runnable rn = () -> {
+            lblStatusAcaoBackupArquivo.setText("Backup imediato iniciado com sucesso!");
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException ex) {
+                GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.this);
+            }
+            lblStatusAcaoBackupArquivo.setText("");
+        };
+        Thread th = new Thread(rn);
+        th.setName("atualizarStatusBkpArquivo");
+        th.start();
     }
 
     //Dados necessário para inicializar o JFrame
@@ -2808,15 +2862,19 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     private javax.swing.JLabel lblCsTempoOnline;
     private javax.swing.JLabel lblCsUsuariosConectados;
     protected javax.swing.JLabel lblDataHora;
+    private javax.swing.JLabel lblDbDataBackup;
     protected javax.swing.JLabel lblDbDataCriacao;
     protected javax.swing.JLabel lblDbDescricao;
     protected javax.swing.JLabel lblDbDestinoBackup;
     protected javax.swing.JLabel lblDbDiaBackup;
     protected javax.swing.JLabel lblDbHoraBackup;
+    private javax.swing.JLabel lblDbHostBackup;
     protected javax.swing.JLabel lblDbIdentificador;
     protected javax.swing.JLabel lblDbLocalBackp;
     protected javax.swing.JLabel lblDbNome;
+    private javax.swing.JLabel lblDbPortaBackup;
     protected javax.swing.JLabel lblDbTipoBackup;
+    private javax.swing.JLabel lblDbUsuarioBackup;
     private javax.swing.JLabel lblDescricaoBackup;
     private javax.swing.JLabel lblDestino;
     private javax.swing.JLabel lblDia;
@@ -2834,6 +2892,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     private javax.swing.JLabel lblRbServidor;
     private javax.swing.JLabel lblRbUsuario;
     private javax.swing.JLabel lblRestaurarNotificacao;
+    private javax.swing.JLabel lblStatusAcaoBackupArquivo;
     private javax.swing.JLabel lbl_hora;
     private javax.swing.JLabel lbl_min;
     private javax.swing.JMenuItem mniBancoDados;

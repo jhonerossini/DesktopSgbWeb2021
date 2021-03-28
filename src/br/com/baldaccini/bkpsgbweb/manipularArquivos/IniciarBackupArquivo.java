@@ -16,7 +16,7 @@ public class IniciarBackupArquivo implements Runnable {
 
     private boolean startStop = true;
     private boolean pause = false;
-    private BackupArquivo backupArquivo;
+    private final BackupArquivo backupArquivo;
     private ConsultaBackupArquivo consulta;
 
     public IniciarBackupArquivo(BackupArquivo backupArquivo) {

@@ -86,5 +86,9 @@ public class Acoes {
     public static String SABADO = "Sábado";
     public static String DOMINGO = "Domingo";
     public static String SEM_COMPACTAR = "";
+    public static String HOST = "Host";
+    public static String USUARIO = "Usuario";
+    public static String PORTA = "Porta";
+    public static String DATA_DO_BACKUP = "Data do Backup";
 
 }

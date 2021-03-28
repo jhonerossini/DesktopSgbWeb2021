@@ -49,11 +49,6 @@ public class ManipularArquivos {
                 // para cada entrada, achamos o arquivo equivalente dentro de cada arvore
                 this.local = local.resolve(entrada.getFileName());
                 this.destino = destino.resolve(entrada.getFileName());
-
-                //log arquivos copiados
-                if (entrada.toFile().isFile()) {
-                    ra.gravarRelatorio(nomeBackup, entrada.toFile().getName(), entrada.toFile().getParent(), this.destino.toFile().getParent(), entrada.toFile().length(), dr.sysDataPath() + " " + dr.horaMinSeg());
-                }
                 // invoca o metodo de maneira recursiva
                 copiarArquivosNovos(this.local, this.destino);
             }
@@ -61,6 +56,7 @@ public class ManipularArquivos {
             try {
                 if (!Files.exists(destino, LinkOption.NOFOLLOW_LINKS)) {
                     Files.copy(local, destino);
+                    ra.gravarRelatorio(nomeBackup, local.toFile().getName(), local.toFile().getParent(), this.destino.toFile().getParent(), local.toFile().length(), dr.sysDataPath() + " " + dr.horaMinSeg());
                 }
             } catch (IOException ex) {
                 GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
@@ -83,17 +79,14 @@ public class ManipularArquivos {
                 this.local = local.resolve(entrada.getFileName());
                 this.destino = destino.resolve(entrada.getFileName());
                 if (!Files.exists(this.destino, LinkOption.NOFOLLOW_LINKS)) {
-                    if (entrada.toFile().isFile()) {
-                        ra.gravarRelatorio(nomeBackup, entrada.toFile().getName(), entrada.toFile().getParent(), this.destino.toFile().getParent(), entrada.toFile().length(), dr.sysDataPath() + " " + dr.horaMinSeg());
-                    }
                     // invoca o metodo de maneira recursiva
                     copiarArquivosNovos(this.local, this.destino);
                 } else {
                     try {
                         if (!String.valueOf(Files.size(this.local)).equals(String.valueOf(Files.size(this.destino)))) {
                             //this.frame.atualizaLog("Copia de arquivo alterado!");
-
                             Files.copy(this.local, this.destino, StandardCopyOption.REPLACE_EXISTING);
+                            ra.gravarRelatorio(nomeBackup, entrada.toFile().getName(), entrada.toFile().getParent(), this.destino.toFile().getParent(), entrada.toFile().length(), dr.sysDataPath() + " " + dr.horaMinSeg());
                         }
                     } catch (IOException ex) {
                         GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());

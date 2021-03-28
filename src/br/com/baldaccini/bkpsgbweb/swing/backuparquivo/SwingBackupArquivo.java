@@ -404,25 +404,25 @@ public class SwingBackupArquivo {
         int qtdMaiuscula = 0;
         String retorno = "";
 
-        if (backup.getSeg().equals("true")) {
+        if (!backup.getSeg().equals("false")) {
             diasSemana = Acoes.SEGUNDA;
         }
-        if (backup.getTer().equals("true")) {
+        if (!backup.getTer().equals("false")) {
             diasSemana += Acoes.TERCA;
         }
-        if (backup.getQua().equals("true")) {
+        if (!backup.getQua().equals("false")) {
             diasSemana += Acoes.QUARTA;
         }
-        if (backup.getQui().equals("true")) {
+        if (!backup.getQui().equals("false")) {
             diasSemana += Acoes.QUINTA;
         }
-        if (backup.getSex().equals("true")) {
+        if (!backup.getSex().equals("false")) {
             diasSemana += Acoes.SEXTA;
         }
-        if (backup.getSab().equals("true")) {
+        if (!backup.getSab().equals("false")) {
             diasSemana += Acoes.SABADO;
         }
-        if (backup.getDom().equals("true")) {
+        if (!backup.getDom().equals("false")) {
             diasSemana += Acoes.DOMINGO;
         }
         for (int i = 0; i < diasSemana.length(); i++) {

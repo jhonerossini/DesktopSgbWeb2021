@@ -184,7 +184,8 @@ public class FtpExterno implements IDestinoFtp {
         try {
             FTPFile[] fTpFile = ftp.listFiles();
             if(fTpFile != null && fTpFile.length <= 0){
-                buildTreeFromString((DefaultTreeModel) model, ftp.printWorkingDirectory());
+                if(ftp.printWorkingDirectory() != null)
+                    buildTreeFromString((DefaultTreeModel) model, ftp.printWorkingDirectory());
                 return;
             }
             for (FTPFile f : fTpFile) {

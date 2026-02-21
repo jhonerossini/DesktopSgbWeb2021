@@ -113,10 +113,10 @@ public class ConectarFtp {
         return true;
     }
 
-    public void enviarArquivo(Path local, String destino) throws IOException{
+    public void enviarArquivo(String nomeBkp, Path local, String destino) throws IOException{
         if(destino != null && !"".equals(destino)){
             ftp.changeWorkingDirectory(destino);
-            String dirRaiz = local.getFileName().toString();
+            String dirRaiz = nomeBkp;
             if(!local.toFile().isFile() && !ftp.changeWorkingDirectory(dirRaiz)){
                 ftp.makeDirectory(dirRaiz);
                 ftp.changeWorkingDirectory(dirRaiz);

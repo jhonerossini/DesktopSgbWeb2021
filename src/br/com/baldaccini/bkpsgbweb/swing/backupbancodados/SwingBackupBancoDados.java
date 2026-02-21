@@ -9,7 +9,7 @@ import br.com.baldaccini.bkpsgbweb.log.GravarBackupBancoLog;
 import br.com.baldaccini.bkpsgbweb.manipularArquivos.IniciarBackupBancoDados;
 import br.com.baldaccini.bkpsgbweb.modelo.BackupBancoDados;
 import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
-import br.com.baldaccini.bkpsgbweb.xml.BkpBancoDadosXML;
+import br.com.baldaccini.bkpsgbweb.json.BkpBancoDadosConfig;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,14 +24,14 @@ public class SwingBackupBancoDados {
     private Thread th;
     private IniciarBackupBancoDados iniciarBackupBancoDados;
     private final ConfigBkp configBkp;
-    private BkpBancoDadosXML bkpBancoDadosXML;
+    private BkpBancoDadosConfig bkpBancoDadosConfig;
 
     /**
      *
      * @param configBkp
      */
     public SwingBackupBancoDados(ConfigBkp configBkp) {
-        bkpBancoDadosXML = new BkpBancoDadosXML();
+        bkpBancoDadosConfig = new BkpBancoDadosConfig();
         this.configBkp = configBkp;
         listaIniciarBackup = new ArrayList<>();
         qtdBackupBancodados();
@@ -90,7 +90,7 @@ public class SwingBackupBancoDados {
     }
 
     public void carregarIniciarBackupBancoDados() {
-        List<BackupBancoDados> listaBancoDados = bkpBancoDadosXML.backupBancoDados();
+        List<BackupBancoDados> listaBancoDados = bkpBancoDadosConfig.backupBancoDados();
         if (listaBancoDados.size() > 0) {
             for (BackupBancoDados bkpBancoDados : listaBancoDados) {
                 iniciarBackupBancoDados = new IniciarBackupBancoDados(bkpBancoDados);
@@ -113,11 +113,11 @@ public class SwingBackupBancoDados {
             try {
                 List<BackupBancoDados> listaBancoDados = new ArrayList<>();
 
-                listaBancoDados.addAll(bkpBancoDadosXML.backupBancoDados());
+                listaBancoDados.addAll(bkpBancoDadosConfig.backupBancoDados());
 
                 listaBancoDados.add(backupBancoDados);
 
-                bkpBancoDadosXML.criarBackupBancoDados(listaBancoDados);
+                bkpBancoDadosConfig.criarBackupBancoDados(listaBancoDados);
 
                 iniciarBackupBancoDados = new IniciarBackupBancoDados(backupBancoDados);
                 th = new Thread(iniciarBackupBancoDados);
@@ -218,7 +218,7 @@ public class SwingBackupBancoDados {
     public void excluirThreadBancoDados(final int linha) {
         if (linha >= 0) {
             int cont = 0;
-            ArrayList<BackupBancoDados> lista = bkpBancoDadosXML.backupBancoDados();
+            ArrayList<BackupBancoDados> lista = bkpBancoDadosConfig.backupBancoDados();
             if (lista.size() > 0) {
                 if (!listaIniciarBackup.isEmpty()) {
                     for (IniciarBackupBancoDados kv : listaIniciarBackup) {
@@ -226,7 +226,7 @@ public class SwingBackupBancoDados {
                             kv.parar();
                             listaIniciarBackup.remove(kv);
                             lista.remove(linha);
-                            bkpBancoDadosXML.criarBackupBancoDados(lista);
+                            bkpBancoDadosConfig.criarBackupBancoDados(lista);
                             configBkp.excluirThreadBancoDados(linha, true);
                             break;
                         }

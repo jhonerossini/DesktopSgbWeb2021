@@ -1,333 +1,241 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.baldaccini.bkpsgbweb.conexao.ftp.externo;
 
-import br.com.baldaccini.bkpsgbweb.conexao.ConectarFtp;
 import br.com.baldaccini.bkpsgbweb.interfaces.IDestinoFtp;
 import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
 import br.com.baldaccini.bkpsgbweb.swing.DestinoFtp;
-import br.com.baldaccini.bkpsgbweb.util.ConvExprTamArq;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
+import org.apache.commons.net.ftp.*;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPFile;
-import org.apache.commons.net.ftp.FTPReply;
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.Objects;
 
-/**
- *
- * @author jhone
- */
 public class FtpExterno implements IDestinoFtp {
 
-    private InputStream is;
-    private FTPClient ftp = null;
-    private DefaultMutableTreeNode raiz;
-    private final DefaultTreeModel model;
-    private long total = 0l;
-    private final ConvExprTamArq conv;
-    private DestinoFtp destinoFtp;
-    private ConfigBkp configBkp;
+    private FTPClient ftp;
+    private final DestinoFtp destinoFtp;
+    private final ConfigBkp configBkp;
+
+    private DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("raiz");
+    private final DefaultTreeModel model = new DefaultTreeModel(raiz);
+
+    private long totalBytes;
 
     public FtpExterno(ConfigBkp configBkp, DestinoFtp destinoFtp) {
-        this.configBkp = configBkp;
+        this.configBkp = Objects.requireNonNull(configBkp);
         this.destinoFtp = destinoFtp;
-        this.raiz = new DefaultMutableTreeNode("raiz");
-        this.model = new DefaultTreeModel(raiz);
-        this.conv = new ConvExprTamArq();
-        this.destinoFtp.getJTree().setModel(model);
-    }
 
-    /**
-     * Returns the index of a child of a given node, provided its string value.
-     *
-     * @param node The node to search its children
-     * @param childValue The value of the child to compare with
-     * @return The index
-     */
-    private int childIndex(final DefaultMutableTreeNode node, final String childValue) {
-        Enumeration<DefaultMutableTreeNode> children = node.children();
-        DefaultMutableTreeNode child = null;
-        int index = -1;
-
-        while (children.hasMoreElements() && index < 0) {
-            child = children.nextElement();
-
-            if (child.getUserObject() != null && childValue.equals(child.getUserObject())) {
-                index = node.getIndex(child);
-            }
-        }
-
-        return index;
-    }
-
-    /**
-     * Builds a tree from a given forward slash delimited string.
-     *
-     * @param model The tree model
-     * @param str The string to build the tree from
-     */
-    protected void buildTreeFromString(final DefaultTreeModel model, final String str) {
-        // Fetch the root node
-        raiz = (DefaultMutableTreeNode) model.getRoot();
-
-        // Split the string around the delimiter
-        String[] strings = str.split("/");
-
-        // Create a node object to use for traversing down the tree as it 
-        // is being created
-        DefaultMutableTreeNode node = raiz;
-
-        // Iterate of the string array
-        for (String s : strings) {
-            // Look for the index of a node at the current level that
-            // has a value equal to the current string
-            int index = childIndex(node, s);
-
-            // Index less than 0, this is a new node not currently present on the tree
-            if (index < 0) {
-                // Add the new node
-                DefaultMutableTreeNode newChild = new DefaultMutableTreeNode(s);
-                node.insert(newChild, node.getChildCount());
-                node = newChild;
-            } // Else, existing node, skip to the next string
-            else {
-                node = (DefaultMutableTreeNode) node.getChildAt(index);
-            }
+        if (destinoFtp != null) {
+            destinoFtp.getJTree().setModel(model);
         }
     }
 
-    private synchronized void pathLocalServidorFTP(File file) {
-        File[] files = file.listFiles();
-
-        for (File f : files) {
-            if (f.isDirectory()) {
-                try {
-                    if (!ftp.changeWorkingDirectory(f.getName())) {
-                        if (!ftp.makeDirectory(f.getName())) {
-                            destinoFtp.atualizarLog("Não foi possível criar o diretorio " + f.getName());
-                        } else {
-                            destinoFtp.atualizarLog("Diretorio " + f.getName() + " criado com sucesso!");
-                            destinoFtp.atualizarLog("Acessando diretorio " + f.getName());
-                            if (ftp.changeWorkingDirectory(f.getName())) {
-                                destinoFtp.atualizarLog("Sucesso ao acessar o diretorio " + f.getName());
-                            } else {
-                                destinoFtp.atualizarLog("Erro ao acessar o diretorio " + f.getName());
-                            }
-                        }
-                    } else {
-                        destinoFtp.atualizarLog("Sucesso ao acessar o diretorio " + f.getName());
-                    }
-                } catch (IOException ex) {
-                    destinoFtp.atualizarLog(ex.getMessage());
-                }
-                pathLocalServidorFTP(f);
-            } else {
-                try {
-                    FTPFile[] listftpF = ftp.listFiles();
-                    boolean flagExit = false;
-                    for (FTPFile ftpF : listftpF) {
-                        if (ftpF.getName().equals(f.getName())) {
-                            flagExit = true;
-                            if (f.length() > ftpF.getSize()) {
-                                destinoFtp.atualizarLog("Arquivo " + f.getName() + " alterado!");
-                                if (ftp.deleteFile(f.getName())) {
-                                    destinoFtp.atualizarLog("Arquivo: " + f.getName() + " deletado com sucesso!");
-                                    is = new FileInputStream(f);//prepara o arquivo para ser enviado
-                                    if (ftp.appendFile(f.getName(), is)) {
-                                        destinoFtp.atualizarLog("Arquivo: " + f.getName() + " enviado com sucesso!");
-                                        buildTreeFromString(model, ftp.printWorkingDirectory() + "/" + f.getName());
-                                        tamanhoBytesCopiados(f.length());
-                                    } else {
-                                        destinoFtp.atualizarLog("Não foi possível enviar o arquivo: " + f.getName());
-                                    }
-                                } else {
-                                    destinoFtp.atualizarLog("Não foi possível deletar o arquivo: " + f.getName());
-                                }
-                            }
-                        }
-                    }
-                    if (!flagExit) {
-                        is = new FileInputStream(f);
-                        if (ftp.appendFile(f.getName(), is)) {
-                            destinoFtp.atualizarLog("Arquivo: " + f.getName() + " enviado com sucesso!");
-                            buildTreeFromString(model, ftp.printWorkingDirectory() + "/" + f.getName());
-                            tamanhoBytesCopiados(f.length());
-                        } else {
-                            destinoFtp.atualizarLog("Não foi possível enviar o arquivo: " + f.getName());
-                        }
-                    }
-                } catch (IOException ex) {
-                    destinoFtp.atualizarLog(ex.getMessage());
-                }
-            }
-        }
-        /*try {
-            if (!lblArqRaizFlag.getText().equals(ftp.printWorkingDirectory())) {
-                ftp.changeWorkingDirectory("../");
-            }
-        } catch (IOException ex) {
-            destinoFtp.atualizarLog(ex.getMessage());
-        }*/
-    }
-
-    private void listarDiretorioFtp() {
-        try {
-            FTPFile[] fTpFile = ftp.listFiles();
-            if(fTpFile != null && fTpFile.length <= 0){
-                if(ftp.printWorkingDirectory() != null)
-                    buildTreeFromString((DefaultTreeModel) model, ftp.printWorkingDirectory());
-                return;
-            }
-            for (FTPFile f : fTpFile) {
-                if (f.isDirectory()) {
-                    if (ftp.changeWorkingDirectory(f.getName())) {
-                        listarDiretorioFtp();
-                    }
-                } else {
-                    if ("/".equals(ftp.printWorkingDirectory())) {
-                        buildTreeFromString((DefaultTreeModel) model, ftp.printWorkingDirectory());
-                    }
-                    String nome = ftp.printWorkingDirectory().substring(1, ftp.printWorkingDirectory().length());
-                    buildTreeFromString((DefaultTreeModel) model, nome + "/" + f.getName());
-                    tamanhoBytesCopiados(f.getSize());
-                }
-            }
-            ftp.changeWorkingDirectory("../");
-        } catch (IOException ex) {
-            GravarArquivoLog.gravarTodosLog(ex.getMessage());
-            if(destinoFtp != null)
-            destinoFtp.atualizarLog(ex.getMessage());
-        }
-    }
-
+    // =========================
+    // CONEXAO
+    // =========================
     @Override
-    public boolean conectar(String ip, int porta, String usuario, String pass, String diretorio, boolean modoPassivo) {
-        try {
-            ftp = new ConectarFtp().conectar(ip, porta, usuario, pass, diretorio, modoPassivo);
-            if(ftp != null){
-                if(destinoFtp != null){
-                destinoFtp.atualizarLog("" + ftp.getReplyString());
-                destinoFtp.atualizarLog("Porta " + ftp.getDefaultPort());
-                }
-                
-                if(diretorio != null && !"".equals(diretorio)){
-                    if(ftp.changeWorkingDirectory(diretorio)){
-                        if(destinoFtp != null){
-                            destinoFtp.setLblDestinoFlag(ftp.printWorkingDirectory());
-                            destinoFtp.atualizarLog("Alterou para o diretorio: " + diretorio);
-                            GravarArquivoLog.gravarLogInformation("Alterou para o diretorio: " + diretorio, ConfigBkp.getInstance());
-                        }
-                    }else{
-                        if(destinoFtp != null){
-                            destinoFtp.atualizarLog("Não foi possivel aterar o diretorio " + diretorio);
-                            GravarArquivoLog.gravarLogInformation("Não foi possivel aterar o diretorio " + diretorio, ConfigBkp.getInstance());
-                        }
-                        if(ftp.changeWorkingDirectory("/")){
-                            destinoFtp.atualizarLog("Voltou para o diretorio raiz.");
-                            GravarArquivoLog.gravarLogInformation("Voltou para o diretorio raiz.", ConfigBkp.getInstance());
-                        }
-                    }
-                }
-                
-                Runnable rn = new Runnable() {
+    public boolean conectar(String host, int porta, String usuario,
+            String senha, String diretorio,
+            boolean modoPassivo) {
 
-                    @Override
-                    public void run() {
-                        listarDiretorioFtp();
-                        //trePastasServer.setModel(model);
-                        //jScrollPane1.repaint();
-                        //lblTotalBytesFlag.setText(conv.convertToStringRepresentation(total));
-                        //atualizarLog("Lista finalizada!");
-                        //btnPronto.setEnabled(true);
-                    }
-                };
-                new Thread(rn).start();
-                return true;
-            } else {
+        ftp = new FTPClient();
+
+        try {
+            ftp.connect(host, porta);
+
+            if (!ftp.login(usuario, senha)
+                    || !FTPReply.isPositiveCompletion(ftp.getReplyCode())) {
                 return false;
             }
-        } catch (IOException ex) {
-            GravarArquivoLog.gravarTodosLog(ex.getMessage());
-            if(destinoFtp != null)
-            destinoFtp.atualizarLog(ex.getMessage());
-            return false;
-        }
-    }
-    
-    public FTPClient conectarr(String ip, int porta, String usuario, String pass, String diretorio, boolean modoPassivo) {
-        ftp = new FTPClient();
-        try {
-            ftp.connect(ip, porta);
-            if (ftp.login(usuario, pass)) {
-                if (FTPReply.isPositiveCompletion(ftp.getReplyCode())) {
-                    if(destinoFtp != null)
-                    destinoFtp.atualizarLog("Conectado!");
-                    if (ftp.setFileType(FTP.BINARY_FILE_TYPE)) {
-                        if(destinoFtp != null)
-                        destinoFtp.atualizarLog("Tipo da transferencia alterada para binario");
-                    } else {
-                        if(destinoFtp != null)
-                        destinoFtp.atualizarLog("Não foi possivel alterar o tipo da transferencia para binario");
-                    }
-                    if (modoPassivo) {
-                        ftp.enterLocalPassiveMode();
-                        //lblModoFlag.setText("Passivo");
-                    } else {
-                        ftp.enterLocalActiveMode();
-                        //lblModoFlag.setText("Ativo");
-                    }
-                }
-                return ftp;
+
+            ftp.setFileType(FTP.BINARY_FILE_TYPE);
+
+            if (modoPassivo) {
+                ftp.enterLocalPassiveMode();
             } else {
-                return null;
+                ftp.enterLocalActiveMode();
             }
-        } catch (IOException ex) {
-            GravarArquivoLog.gravarTodosLog(ex.getMessage());
-            if(destinoFtp != null)
-            destinoFtp.atualizarLog(ex.getMessage());
-            return null;
+
+            if (diretorio != null && !diretorio.isBlank()) {
+                ftp.changeWorkingDirectory(diretorio);
+            }
+
+            log("Conectado ao servidor FTP.");
+
+            //Virtual Thread
+            Thread.startVirtualThread(this::listarDiretorioFtp);
+
+            return true;
+
+        } catch (IOException e) {
+            logErro(e);
+            return false;
         }
     }
 
     @Override
     public boolean desconectar() {
-        if (ftp != null) {
-            if (ftp.isConnected()) {
-                try {
-                    ftp.logout();
-                    ftp.disconnect();
-                    //this.setVisible(false);
-                    return true;
-                } catch (IOException ex) {
-                    //atualizarLog(ex.getMessage());
-                    //this.setVisible(false);
-                    return false;
-                }
-            } else {
-                return true;
-            }
-        } else {
+        if (ftp == null || !ftp.isConnected()) {
             return true;
         }
+
+        try {
+            ftp.logout();
+            ftp.disconnect();
+            log("Desconectado com sucesso.");
+            return true;
+        } catch (IOException e) {
+            logErro(e);
+            return false;
+        }
+    }
+
+    // =========================
+    // UPLOAD RECURSIVO
+    // =========================
+    public void enviarDiretorio(Path origem) {
+        if (!Files.exists(origem)) {
+            return;
+        }
+
+        Thread.startVirtualThread(() -> uploadRecursivo(origem));
+    }
+
+    private void uploadRecursivo(Path origem) {
+
+        try (var paths = Files.walk(origem)) {
+
+            paths.forEach(path -> {
+                try {
+                    if (Files.isDirectory(path)) {
+                        criarDiretorioRemoto(path.getFileName().toString());
+                    } else {
+                        enviarArquivo(path);
+                    }
+                } catch (Exception e) {
+                    logErro(e);
+                }
+            });
+
+        } catch (IOException e) {
+            logErro(e);
+        }
+    }
+
+    private void enviarArquivo(Path arquivo) throws IOException {
+
+        try (var input = Files.newInputStream(arquivo)) {
+
+            if (ftp.storeFile(arquivo.getFileName().toString(), input)) {
+
+                totalBytes += Files.size(arquivo);
+                log("Arquivo enviado: " + arquivo.getFileName());
+
+            } else {
+                log("Falha ao enviar: " + arquivo.getFileName());
+            }
+        }
+    }
+
+    private void criarDiretorioRemoto(String nome) throws IOException {
+
+        if (!ftp.changeWorkingDirectory(nome)) {
+            ftp.makeDirectory(nome);
+            ftp.changeWorkingDirectory(nome);
+        }
+    }
+
+    // =========================
+    // LISTAGEM
+    // =========================
+    private void listarDiretorioFtp() {
+
+        try {
+            listarRecursivo("/");
+            if(totalBytes == 0l)
+                adicionarNoTree(ftp.printWorkingDirectory());
+        } catch (IOException e) {
+            logErro(e);
+        }
+    }
+
+    private void listarRecursivo(String path) throws IOException {
+
+        ftp.changeWorkingDirectory(path);
+
+        var arquivos = ftp.listFiles();
+
+        if (arquivos == null) {
+            return;
+        }
+
+        for (var arquivo : arquivos) {
+
+            if (arquivo.isDirectory()) {
+                listarRecursivo(path + "/" + arquivo.getName());
+            } else {
+                adicionarNoTree(path + "/" + arquivo.getName());
+                totalBytes += arquivo.getSize();
+            }
+        }
+    }
+
+    // =========================
+    // TREE
+    // =========================
+    private void adicionarNoTree(String caminho) {
+
+        var partes = caminho.split("/");
+        var node = raiz;
+        if(partes != null && partes.length == 0){
+            raiz = new DefaultMutableTreeNode("/");
+        }    
+        for (var parte : partes) {
+
+            if (parte.isBlank()) {
+                continue;
+            }
+
+            DefaultMutableTreeNode filho = null;
+
+            for (int i = 0; i < node.getChildCount(); i++) {
+                var child = (DefaultMutableTreeNode) node.getChildAt(i);
+                if (parte.equals(child.getUserObject())) {
+                    filho = child;
+                    break;
+                }
+            }
+
+            if (filho == null) {
+                filho = new DefaultMutableTreeNode(parte);
+                node.add(filho);
+            }
+
+            node = filho;
+        }
+    }
+
+    // =========================
+    // LOG
+    // =========================
+    private void log(String msg) {
+        if (destinoFtp != null) {
+            destinoFtp.atualizarLog(msg);
+        }
+        GravarArquivoLog.gravarLogInformation(msg, configBkp);
+    }
+
+    private void logErro(Exception e) {
+        if (destinoFtp != null) {
+            destinoFtp.atualizarLog(e.getMessage());
+        }
+        GravarArquivoLog.gravarTodosLog(e.getMessage());
     }
 
     @Override
     public void fecharJanela() {
-        //super.dispose();
-    }
-
-    private void tamanhoBytesCopiados(long tam) {
-        total += tam;
-        //destinoFtp.lblTotalBytesFlag.setText(String.valueOf(total));
+        desconectar();
     }
 }

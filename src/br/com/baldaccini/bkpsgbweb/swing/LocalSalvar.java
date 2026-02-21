@@ -5,6 +5,7 @@
  */
 package br.com.baldaccini.bkpsgbweb.swing;
 
+import java.util.Base64;
 import javax.swing.JFileChooser;
 
 /**
@@ -15,7 +16,6 @@ public class LocalSalvar extends javax.swing.JFrame {
 
     private final ConfigBkp configBkp;
     private DestinoFtp dFtp;
-    private Thread th;
 
     /**
      * Creates new form LocalSalvar
@@ -155,21 +155,22 @@ public class LocalSalvar extends javax.swing.JFrame {
         lblArqIp.setText("IP:");
 
         txtArqIp.setBackground(new java.awt.Color(204, 204, 204));
-        txtArqIp.setText("192.168.0.104");
+        txtArqIp.setText("localhost");
 
         lblArqPorta.setText("Porta:");
 
         txtArqPorta.setBackground(new java.awt.Color(204, 204, 204));
+        txtArqPorta.setText("21");
 
         lblArqUsuario.setText("Usuario:");
 
         txtArqUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        txtArqUsuario.setText("debian");
+        txtArqUsuario.setText("anonymous");
 
         lblArqSenha.setText("Senha:");
 
         pasArqSenha.setBackground(new java.awt.Color(204, 204, 204));
-        pasArqSenha.setText("debian");
+        pasArqSenha.setText("anonymous");
 
         btnArqConectar.setBackground(new java.awt.Color(0, 51, 153));
         btnArqConectar.setForeground(java.awt.Color.white);
@@ -345,7 +346,7 @@ public class LocalSalvar extends javax.swing.JFrame {
                                     configBkp.setFtpIp(txtArqIp.getText());
                                     configBkp.setFtpPorta(txtArqPorta.getText());
                                     configBkp.setFtpLogin(txtArqUsuario.getText());
-                                    configBkp.setFtpSenha(pasArqSenha.getPassword().toString());
+                                    configBkp.setFtpSenha(Base64.getEncoder().encodeToString(pasArqSenha.getText().getBytes()));
                                     configBkp.setFtpModoConexao(String.valueOf(chkModoPassivo.isSelected()));
                                     dFtp.setVisible(true);
                                 } else {
@@ -355,9 +356,7 @@ public class LocalSalvar extends javax.swing.JFrame {
                             }
                         }
                     };
-                    th = new Thread(rn);
-                    th.setName("ConectarFtp");
-                    th.start();
+                    configBkp.executor().submit(rn);
                     break;
                 case "Desconectar":
                     if (dFtp.getFtpExterno().desconectar()) {

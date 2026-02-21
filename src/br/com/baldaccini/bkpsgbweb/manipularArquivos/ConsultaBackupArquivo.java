@@ -13,6 +13,9 @@ import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
 import br.com.baldaccini.bkpsgbweb.zipunzip.CompactarPasta;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
 
 /**
  *
@@ -189,10 +192,8 @@ public class ConsultaBackupArquivo {
         } else {
             destinoZip = destinoZipLocal;
         }
-        if (!new File(destinoZip).exists()) {
-            if (!cp.zipar(backup.getLocal(), destinoZip)) {
-                destinoZip = "";
-            }
+        if (!cp.adicionarArquivoZip(backup.getLocal(), destinoZip)) {
+            destinoZip = "";
         }
         return destinoZip;
     }
@@ -201,15 +202,16 @@ public class ConsultaBackupArquivo {
         String ip = backup.getHost();
         String porta = backup.getPorta();
         String usuario = backup.getUsuario();
-        String senha = "123456780";//backup.getSenha();
+        String senha = new String(Base64.getDecoder().decode(backup.getSenha()));
         String modoPassivo = backup.getModoConexao();
         ConectarFtp conexaoFtp = new ConectarFtp();
+        String nomeBkp = backup.getNome();
         if(null != conexaoFtp.conectar(ip, porta != null && !"".equals(porta) ? Integer.parseInt(porta) : 21, usuario, senha, backup.getDestino(), (modoPassivo != null && !"".equals(modoPassivo) ? "true".equals(modoPassivo) : false))){
             try {
                 if ("".equals(destinoZip)) {
-                    conexaoFtp.enviarArquivo(new File(backup.getLocal()).toPath(), backup.getDestino());
-                } else {
-                    conexaoFtp.enviarArquivo(new File(destinoZip).toPath(), backup.getDestino());
+                    conexaoFtp.enviarArquivo(nomeBkp, new File(backup.getLocal()).toPath(), backup.getDestino());
+                } else { 
+                    conexaoFtp.enviarArquivo(nomeBkp, new File(destinoZip).toPath(), backup.getDestino());
                 }
             } catch (IOException ex) {
                 GravarArquivoLog.gravarLogInformation(ex.getMessage(), ConfigBkp.getInstance());

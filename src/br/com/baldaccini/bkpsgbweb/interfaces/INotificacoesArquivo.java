@@ -6,6 +6,7 @@
 package br.com.baldaccini.bkpsgbweb.interfaces;
 
 import br.com.baldaccini.bkpsgbweb.modelo.BackupArquivo;
+import java.util.concurrent.ExecutorService;
 
 /**
  *
@@ -43,4 +44,8 @@ public interface INotificacoesArquivo {
     public void setServidorUsuariosConectados(String texto);
     public void setServidorOperando(String texto);
     public void setLblAvisoServidor(String texto);
+    
+    public ExecutorService executor();
+    
+    public void shutdownExecutor();
 }

@@ -97,7 +97,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txt_usuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Jhone"/>
+        <Property name="text" type="java.lang.String" value="Teste"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pass_senha">

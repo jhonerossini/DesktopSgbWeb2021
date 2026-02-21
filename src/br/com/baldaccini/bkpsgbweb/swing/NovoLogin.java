@@ -3,7 +3,7 @@ package br.com.baldaccini.bkpsgbweb.swing;
 import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 import br.com.baldaccini.bkpsgbweb.modelo.Login;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
+import br.com.baldaccini.bkpsgbweb.json.LoginConfig;
 import java.io.File;
 import javax.swing.JOptionPane;
 
@@ -159,7 +159,7 @@ public class NovoLogin extends javax.swing.JFrame {
                 }
                 login.setEmpresa(txtEmpresa.getText());
                 login.setFinalidadeBackup(txtFinalidadeBackup.getText());
-                new LoginXML().criarLogin(login);
+                new LoginConfig().criarLogin(login);
                 this.dispose();
                 new Principal().setVisible(true);
             } else {

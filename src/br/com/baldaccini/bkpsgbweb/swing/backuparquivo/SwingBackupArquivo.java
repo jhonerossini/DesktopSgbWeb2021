@@ -14,7 +14,7 @@ import br.com.baldaccini.bkpsgbweb.modelo.Acoes;
 import br.com.baldaccini.bkpsgbweb.modelo.BackupArquivo;
 import br.com.baldaccini.bkpsgbweb.modelo.NomeAbreviacao;
 import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
-import br.com.baldaccini.bkpsgbweb.xml.BkpArquivoXML;
+import br.com.baldaccini.bkpsgbweb.json.BkpArquivoConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,16 +27,15 @@ public class SwingBackupArquivo {
 
     private static List<IniciarBackupArquivo> LISTA_THREAD;
     private Runnable rn;
-    private Thread th;
     private IniciarBackupArquivo iniciarBackup;
     private boolean flagVerifThreadsAtivasInat = false;
     private static INotificacoesArquivo CONFIG_BKP;
-    private static BkpArquivoXML BKP_ARQUIVO_XML;
+    private static BkpArquivoConfig BKP_ARQUIVO_CONFIG;
     private static Configuracao CONFIGURACAO;
 
     public SwingBackupArquivo(ConfigBkp configBkp) {
         CONFIGURACAO = new Configuracao(configBkp);
-        BKP_ARQUIVO_XML = new BkpArquivoXML();
+        BKP_ARQUIVO_CONFIG = new BkpArquivoConfig();
         LISTA_THREAD = new ArrayList<>();
         SwingBackupArquivo.CONFIG_BKP = configBkp;
         qtdBackupArquivo();
@@ -47,23 +46,21 @@ public class SwingBackupArquivo {
     }
 
     private void qtdBackupArquivo() {
-        rn = new Runnable() {
-
-            @Override
-            public synchronized void run() {
-                while (true) {
-                    CONFIG_BKP.atualizarLblQtdBkp((LISTA_THREAD != null ? LISTA_THREAD.size() : 0), SwingBackupArquivo.class.getSimpleName());
-                    try {
-                        wait(500);
-                    } catch (InterruptedException ex) {
-                        GravarBackupBancoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
-                    }
+        CONFIG_BKP.executor().submit(() -> {
+            while (true) {
+                CONFIG_BKP.atualizarLblQtdBkp(
+                        (LISTA_THREAD != null ? LISTA_THREAD.size() : 0),
+                        SwingBackupArquivo.class.getSimpleName()
+                );
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    GravarArquivoLog.gravarLogError(e.getMessage(), ConfigBkp.getInstance());
+                    break;
                 }
             }
-        };
-        th = new Thread(rn);
-        th.setName("QtdBackupArquivo");
-        th.start();
+        });
     }
 
     private void inicarThreadBackupArquivo(ArrayList<BackupArquivo> lista) {
@@ -72,9 +69,7 @@ public class SwingBackupArquivo {
 
                 for (BackupArquivo backup : lista) {
                     iniciarBackup = new IniciarBackupArquivo(backup);
-                    th = new Thread(iniciarBackup);
-                    th.setName(backup.getNome());
-                    th.start();
+                    CONFIG_BKP.executor().submit(iniciarBackup);
                     LISTA_THREAD.add(iniciarBackup);
                     CONFIG_BKP.iniciarTabelaArquivo(new String[]{backup.getNome(), backup.getDataCriacao().replace("-", "/"), backup.getHoraMin(), (NomeAbreviacao.SEGUNDA_FEIRA.equals(backup.getSeg()) ? Acoes.SIM : Acoes.NAO), (NomeAbreviacao.TERCA_FEIRA.equals(backup.getTer()) ? Acoes.SIM : Acoes.NAO), (NomeAbreviacao.QUARTA_FEIRA.equals(backup.getQua()) ? Acoes.SIM : Acoes.NAO),
                         (NomeAbreviacao.QUINTA_FEIRA.equals(backup.getQui()) ? Acoes.SIM : Acoes.NAO), (NomeAbreviacao.SEXTA_FEIRA.equals(backup.getSex()) ? Acoes.SIM : Acoes.NAO), (NomeAbreviacao.SABADO.equals(backup.getSab()) ? Acoes.SIM : Acoes.NAO), (NomeAbreviacao.DOMINGO.equals(backup.getDom()) ? Acoes.SIM : Acoes.NAO)});
@@ -98,81 +93,42 @@ public class SwingBackupArquivo {
 
     private void verifThreadsAtivasInat() {
         flagVerifThreadsAtivasInat = true;
-        rn = new Runnable() {
-
-            int cont = 0;
-
-            @Override
-            public synchronized void run() {
-                while (true) {
+        CONFIG_BKP.executor().submit(() -> {
+            while (true) {
+                int cont = 0;
+                for (IniciarBackupArquivo kv : LISTA_THREAD) {
                     try {
-                        for (IniciarBackupArquivo kv : LISTA_THREAD) {
-                            try {
-                                if (kv.isPause()) {
-                                    CONFIG_BKP.situacaoBkpArquivo(cont, Acoes.PAUSADO);
-                                } else if (!kv.isStartStop()) {
-                                    CONFIG_BKP.situacaoBkpArquivo(cont, Acoes.PARADO);
-                                } else {
-                                    CONFIG_BKP.situacaoBkpArquivo(cont, Acoes.INICIADO);
-                                }
-                                cont++;
-                            } catch (Exception ex) {
-                                flagVerifThreadsAtivasInat = false;
-                                GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
-                            }
+                        if (kv.isPause()) {
+                            CONFIG_BKP.situacaoBkpArquivo(cont, Acoes.PAUSADO);
+                        } else if (!kv.isStartStop()) {
+                            CONFIG_BKP.situacaoBkpArquivo(cont, Acoes.PARADO);
+                        } else {
+                            CONFIG_BKP.situacaoBkpArquivo(cont, Acoes.INICIADO);
                         }
-                        cont = 0;
-                        wait(200);
-                    } catch (Exception ex) {
-                        flagVerifThreadsAtivasInat = false;
-                        GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
+                        cont++;
+                    } catch (Exception e) {
+                        GravarArquivoLog.gravarLogError(e.getMessage(), ConfigBkp.getInstance());
                     }
                 }
+
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
             }
-        };
-        th = new Thread(rn);
-        th.setName("VerifThAtivaInativa");
-        th.start();
+        });
     }
 
     public void iniciarThreadAtivaInativa() {
-        rn = new Runnable() {
-
-            @Override
-            public void run() {
-                ArrayList<BackupArquivo> listaBackup = new BkpArquivoXML().backupArquivo();
-                if (listaBackup.size() >= 0) {
-                    inicarThreadBackupArquivo(listaBackup);
-                    verifThreadsAtivasInat();
-                    //persistirThread();
-                }
+        CONFIG_BKP.executor().submit(() -> {
+            ArrayList<BackupArquivo> listaBackup = new BkpArquivoConfig().backupArquivo();
+            if (!listaBackup.isEmpty()) {
+                inicarThreadBackupArquivo(listaBackup);
+                verifThreadsAtivasInat();
             }
-        };
-        th = new Thread(rn);
-        th.setName("ArqIniThAtivaInativa");
-        th.start();
-    }
-
-    @Deprecated
-    private void persistirThread() {
-        rn = new Runnable() {
-            @Override
-            public synchronized void run() {
-                while (true) {
-                    if (!flagVerifThreadsAtivasInat) {
-                        verifThreadsAtivasInat();
-                    }
-                    try {
-                        wait(1000);
-                    } catch (InterruptedException ex) {
-                        GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
-                    }
-                }
-            }
-        };
-        th = new Thread(rn);
-        th.setName("ArqPersThAtivaInativa");
-        th.start();
+        });
     }
 
     @SuppressWarnings("empty-statement")
@@ -184,7 +140,7 @@ public class SwingBackupArquivo {
 
     private boolean compararIdentificadorXML(Long id) {
         try {
-            for (BackupArquivo backup : BKP_ARQUIVO_XML.backupArquivo()) {
+            for (BackupArquivo backup : BKP_ARQUIVO_CONFIG.backupArquivo()) {
                 if (id.compareTo(Long.parseLong((backup.getIdentificador() == null ? "-2" : backup.getIdentificador()))) == 0) {
                     return true;
                 }
@@ -200,7 +156,7 @@ public class SwingBackupArquivo {
             long id = gerarIdentificador();
             List<BackupArquivo> listaBackupNovo;
             listaBackupNovo = new ArrayList<>();
-            listaBackupNovo.addAll(BKP_ARQUIVO_XML.backupArquivo());
+            listaBackupNovo.addAll(BKP_ARQUIVO_CONFIG.backupArquivo());
             for (BackupArquivo bkp : listaBackupNovo) {
                 if (bkp.getNome().equals(backupArquivo.getNome())) {
                     CONFIG_BKP.alertaArquivo(Acoes.O_NOME_DO_BACKUP_JA_EXISTE);
@@ -211,11 +167,9 @@ public class SwingBackupArquivo {
             backupArquivo.setIdentificador(String.valueOf(id));
             listaBackupNovo.add(backupArquivo);
             iniciarBackup = new IniciarBackupArquivo(backupArquivo);
-            th = new Thread(iniciarBackup);
-            th.setName(backupArquivo.getNome());
-            th.start();
+            CONFIG_BKP.executor().submit(iniciarBackup);
             LISTA_THREAD.add(iniciarBackup);
-            BKP_ARQUIVO_XML.criarBackupArquivo(listaBackupNovo);
+            BKP_ARQUIVO_CONFIG.criarBackupArquivoJson(listaBackupNovo);
             CONFIG_BKP.addLinhaTabelaArquivo();
             listaBackupNovo.clear();
             try {
@@ -249,9 +203,7 @@ public class SwingBackupArquivo {
                         }
                     } else if (!kv.isStartStop()) {
                         kv.iniciar();
-                        th = new Thread(kv);
-                        th.setName(kv.getBackupArquivo().getNome());
-                        th.start();
+                        CONFIG_BKP.executor().submit(kv);
                         CONFIG_BKP.situacaoBkpArquivo(linha, Acoes.INICIADO);
                         GravarArquivoLog.gravarLogInformation(kv.getBackupArquivo().getNome() + " iniciado com sucesso!", ConfigBkp.getInstance());
                         try {
@@ -283,9 +235,7 @@ public class SwingBackupArquivo {
                     if (linha == cont) {
                         if (!kv.isStartStop()) {
                             kv.iniciar();
-                            th = new Thread(kv);
-                            th.setName(kv.getBackupArquivo().getNome());
-                            th.start();
+                            CONFIG_BKP.executor().submit(kv);
                         }
                         kv.pause();
                         CONFIG_BKP.situacaoBkpArquivo(linha, Acoes.PAUSADO);
@@ -302,8 +252,7 @@ public class SwingBackupArquivo {
                 }
             }
         };
-        th = new Thread(rn);
-        th.start();
+        CONFIG_BKP.executor().submit(rn);
     }
 
     public void imediato(final int linha) {
@@ -320,8 +269,7 @@ public class SwingBackupArquivo {
                 }
             }
         };
-        th = new Thread(rn);
-        th.start();
+        CONFIG_BKP.executor().submit(rn);
     }
 
     public void pararThreadArquivo(final int linha) {
@@ -351,18 +299,17 @@ public class SwingBackupArquivo {
                 }
             }
         };
-        th = new Thread(rn);
-        th.start();
+        CONFIG_BKP.executor().submit(rn);
     }
 
     public void detalharThreadArquivo(int linha) {
-        List<BackupArquivo> lista = BKP_ARQUIVO_XML.backupArquivo();
+        List<BackupArquivo> lista = BKP_ARQUIVO_CONFIG.backupArquivo();
         CONFIG_BKP.detalheArquivo(lista.get(linha));
     }
 
     public static void excluirThreadArquivo(int linha) {
         if (linha >= 0) {
-            ArrayList<BackupArquivo> lista = BKP_ARQUIVO_XML.backupArquivo();
+            ArrayList<BackupArquivo> lista = BKP_ARQUIVO_CONFIG.backupArquivo();
             GravarArquivoLog.gravarLogInformation("tamanho da lista: " + lista.size(), ConfigBkp.getInstance());
             if (lista.size() > 0) {
                 GravarArquivoLog.gravarLogInformation("lista é maior que zero!", ConfigBkp.getInstance());
@@ -376,7 +323,7 @@ public class SwingBackupArquivo {
                             GravarArquivoLog.gravarLogInformation("thread removida com sucesso!", ConfigBkp.getInstance());
                             lista.remove(linha);
                             GravarArquivoLog.gravarLogInformation("linha removida com sucesso!", ConfigBkp.getInstance());
-                            BKP_ARQUIVO_XML.criarBackupArquivo(lista);
+                            BKP_ARQUIVO_CONFIG.criarBackupArquivoJson(lista);
                             GravarArquivoLog.gravarLogInformation("xml atualizado com sucesso!", ConfigBkp.getInstance());
                             CONFIG_BKP.excluirThreadArquivo(linha, true);
                             try {

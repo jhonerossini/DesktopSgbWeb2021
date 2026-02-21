@@ -13,13 +13,11 @@ import br.com.baldaccini.bkpsgbweb.log.GravarServidorLog;
 import br.com.baldaccini.bkpsgbweb.modelo.Acoes;
 import br.com.baldaccini.bkpsgbweb.modelo.BackupArquivo;
 import br.com.baldaccini.bkpsgbweb.modelo.BackupBancoDados;
-import br.com.baldaccini.bkpsgbweb.modelo.Login;
 import br.com.baldaccini.bkpsgbweb.modelo.NomeAbreviacao;
 import br.com.baldaccini.bkpsgbweb.relatorio.RelatorioFrame;
 import br.com.baldaccini.bkpsgbweb.swing.backuparquivo.SwingBackupArquivo;
 import br.com.baldaccini.bkpsgbweb.swing.backupbancodados.SwingBackupBancoDados;
 import br.com.baldaccini.bkpsgbweb.util.Util;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
 import java.awt.AWTException;
 import java.awt.Image;
 import java.awt.MenuItem;
@@ -31,10 +29,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Calendar;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
@@ -516,25 +518,6 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
             .addGroup(pnlDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(chkSegunda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkTerca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkQuarta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkQuinta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkSexta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkSabado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkDomingo)
-                        .addContainerGap())
-                    .addGroup(pnlDataLayout.createSequentialGroup()
-                        .addComponent(chkContinuarBackup)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlDataLayout.createSequentialGroup()
                         .addComponent(chkData)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -549,7 +532,28 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                         .addComponent(lblAno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cboAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlDataLayout.createSequentialGroup()
+                        .addGroup(pnlDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDataLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(chkSegunda)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkTerca)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkQuarta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkQuinta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkSexta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkSabado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chkDomingo))
+                            .addGroup(pnlDataLayout.createSequentialGroup()
+                                .addComponent(chkContinuarBackup)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         pnlDataLayout.setVerticalGroup(
             pnlDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -729,6 +733,8 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
         tblBkpAgendados.setSelectionForeground(new java.awt.Color(240, 240, 240));
         tblBkpAgendados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblBkpAgendados.getTableHeader().setReorderingAllowed(false);
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) tblBkpAgendados.getTableHeader().getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(JLabel.CENTER);
         jScrollPane1.setViewportView(tblBkpAgendados);
         tblBkpAgendados.setModel(new DefaultTableModel(new String[][]{}, new String[]{"Nome", "Data", "Hora", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom", "Estado"}));
         tblBkpAgendados.getColumnModel().getColumn(0).setPreferredWidth(40);//nome
@@ -1796,7 +1802,6 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
 
         tpServidorBackup.getAccessibleContext().setAccessibleName("Controle Servidor");
 
-        tobConfigBasicas.setFloatable(false);
         tobConfigBasicas.setRollover(true);
 
         lblQtdBkpAgendado.setText("Quantidade de backup agendado:");
@@ -2625,9 +2630,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
             }
             lblStatusAcaoBackupArquivo.setText("");
         };
-        Thread th = new Thread(rn);
-        th.setName("atualizarStatusBkpArquivo");
-        th.start();
+        EXECUTOR.submit(rn);
     }
 
     //Dados necessário para inicializar o JFrame
@@ -2667,9 +2670,7 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
                 }
             }
         };
-        Thread th = new Thread(rn);
-        th.setName("DataHoraRodape");
-        th.start();
+        EXECUTOR.submit(rn);
         //
         txaLog.append(new GravarArquivoLog().carregarArquivoTextoLog().toString());
         ((DefaultCaret) txaLog.getCaret()).setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
@@ -2739,7 +2740,17 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     private void abrirJFrame() {
         this.setVisible(true);
     }
+    
+    @Override
+    public ExecutorService executor() {
+        return EXECUTOR;
+    }
 
+    @Override
+    public void shutdownExecutor() {
+        EXECUTOR.shutdownNow();
+    }
+    
     //Variaveis locais
     private JFileChooser fc;
     private Image imageIcon;
@@ -2759,6 +2770,8 @@ public class ConfigBkp extends javax.swing.JFrame implements INotificacoesArquiv
     private String ftpIp = "";
     private String ftpModoConexao = "";
     private final int SCROLL_BUFFER_SIZE = 500;
+    
+    private static final ExecutorService EXECUTOR = Executors.newVirtualThreadPerTaskExecutor();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnAdicionar;

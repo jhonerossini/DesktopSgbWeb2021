@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.baldaccini.bkpsgbweb.xml;
+package br.com.baldaccini.bkpsgbweb.json;
 
 import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 import br.com.baldaccini.bkpsgbweb.modelo.Login;
@@ -15,18 +14,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.List;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
 
 /**
  *
- * @author baldaccini
+ * @author jhone
  */
-public class LoginXML {
+public class LoginConfig {
 
     public void criarLogin(Login login) {
         try {
@@ -57,31 +50,6 @@ public class LoginXML {
         } catch (IOException ex) {
             GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
         }
-    }
-
-    @Deprecated
-    public Login lerLoginXML() {
-        File f = new File("configPass.xml");
-        if (f.exists()) {
-            SAXBuilder builder = new SAXBuilder();
-            Document doc;
-            try {
-                doc = builder.build(f);
-                Element root = (Element) doc.getRootElement();
-                List pessoas = root.getChildren();
-                Iterator i = pessoas.iterator();
-                Login login = new Login();
-                Element pessoa = (Element) i.next();
-                login.setUsuario(pessoa.getChildText("usuario"));
-                login.setPass(pessoa.getChildText("pass"));
-                login.setEmail(pessoa.getChildText("email"));
-                return login;
-            } catch (JDOMException | IOException ex) {
-                GravarArquivoLog.gravarTodosLog(ex.getMessage());
-                return null;
-            }
-        }
-        return new Login();
     }
 
     public Login lerLogin() {

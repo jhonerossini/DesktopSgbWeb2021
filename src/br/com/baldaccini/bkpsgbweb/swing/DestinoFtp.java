@@ -190,7 +190,8 @@ public class DestinoFtp extends javax.swing.JFrame {
 
     private void trePastasServerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trePastasServerMouseClicked
         if ("".equals(lblDestinoFlag.getText())) {
-
+            this.lblDestinoFlag.setText("/");
+            this.configBkp.setDestino("/");
         }
     }//GEN-LAST:event_trePastasServerMouseClicked
 

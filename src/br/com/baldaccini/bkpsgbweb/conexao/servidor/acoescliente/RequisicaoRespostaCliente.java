@@ -15,7 +15,7 @@ import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
 import br.com.baldaccini.bkpsgbweb.swing.backuparquivo.SwingBackupArquivo;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
 import br.com.baldaccini.bkpsgbweb.util.Util;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
+import br.com.baldaccini.bkpsgbweb.json.LoginConfig;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -198,7 +198,7 @@ public class RequisicaoRespostaCliente implements Runnable {
     }
 
     private void login(String usuario, String senha, int codAcao) {
-        Login login = new LoginXML().lerLogin();
+        Login login = new LoginConfig().lerLogin();
         if (usuario.equals(login.getUsuario()) && Criptografia.decrypt(senha).equals(Criptografia.decrypt(login.getPass()))) {
             try {
                 out.write(codAcao);

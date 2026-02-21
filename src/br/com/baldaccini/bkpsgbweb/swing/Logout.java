@@ -8,7 +8,7 @@ package br.com.baldaccini.bkpsgbweb.swing;
 import br.com.baldaccini.bkpsgbweb.modelo.Acoes;
 import br.com.baldaccini.bkpsgbweb.modelo.Login;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
+import br.com.baldaccini.bkpsgbweb.json.LoginConfig;
 import javax.swing.JOptionPane;
 
 /**
@@ -93,7 +93,7 @@ public class Logout extends javax.swing.JDialog {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
-        Login login = new LoginXML().lerLogin();
+        Login login = new LoginConfig().lerLogin();
         if (login.getPass().equals(Criptografia.encrypt(String.valueOf(pswSenha.getPassword()), login.getUsuario()))) {
             int opcao = JOptionPane.showConfirmDialog(null, Acoes.VOCE_REALMENTE_DESEJA_SAIR_DO_SISTEMA, Acoes.CONFIRMACAO, JOptionPane.YES_NO_OPTION);
             if (opcao == 0) {

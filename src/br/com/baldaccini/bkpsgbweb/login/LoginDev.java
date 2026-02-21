@@ -7,7 +7,7 @@ package br.com.baldaccini.bkpsgbweb.login;
 import br.com.baldaccini.bkpsgbweb.log.GravarArquivoLog;
 import br.com.baldaccini.bkpsgbweb.modelo.Login;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
+import br.com.baldaccini.bkpsgbweb.json.LoginConfig;
 
 /**
  *
@@ -18,7 +18,7 @@ public class LoginDev {
     private final Login login;
 
     public LoginDev() {
-        login = new LoginXML().lerLogin();
+        login = new LoginConfig().lerLogin();
     }
 
     public boolean realizarLogin(String nome, String senha) {

@@ -10,7 +10,7 @@ import br.com.baldaccini.bkpsgbweb.modelo.Login;
 import br.com.baldaccini.bkpsgbweb.swing.ConfigBkp;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
 import br.com.baldaccini.bkpsgbweb.util.Util;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
+import br.com.baldaccini.bkpsgbweb.json.LoginConfig;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
@@ -24,7 +24,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
-import org.jdom2.JDOMException;
 
 /**
  *
@@ -32,9 +31,9 @@ import org.jdom2.JDOMException;
  */
 public class RedefinirSenhaEmail {
 
-    public void dadosEmail() throws JDOMException, IOException {
-        LoginXML loginXML = new LoginXML();
-        Login login = loginXML.lerLogin();
+    public void dadosEmail() throws IOException {
+        LoginConfig loginConfig = new LoginConfig();
+        Login login = loginConfig.lerLogin();
         Properties props = System.getProperties();
         String novaSenha="";
         
@@ -54,7 +53,7 @@ public class RedefinirSenhaEmail {
             enviarEmail.setCorpo("Esta é a nova senha: " + novaSenha);
             try {
                 enviarEmailGmail(enviarEmail, props);
-                loginXML.alterar(Criptografia.encrypt(novaSenha, login.getUsuario()));
+                //loginConfig.alterar(Criptografia.encrypt(novaSenha, login.getUsuario()));
             } catch (AddressException ex) {
                 GravarArquivoLog.gravarLogError(ex.getMessage(), ConfigBkp.getInstance());
                 JOptionPane.showMessageDialog(null, "Endereço de e-mail digitado incorretamente!");

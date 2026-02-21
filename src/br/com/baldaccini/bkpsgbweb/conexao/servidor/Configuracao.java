@@ -23,7 +23,7 @@ public class Configuracao {
     private final GravarServidorLog gravarServidorLog;
     private final ConfigBkp configBkp;
     private final DataReturn dr;
-    private Thread th;
+
 
     public Configuracao(ConfigBkp configBkp) {
         this.configBkp = configBkp;
@@ -36,9 +36,7 @@ public class Configuracao {
             String porta = configBkp.gettxtConfigServPorta();
             if (!porta.isEmpty()) {
                 escutaCliente = new EscutaCliente(Integer.parseInt(porta));
-                th = new Thread(escutaCliente);
-                th.setName(EscutaCliente.class.getSimpleName());
-                th.start();
+                configBkp.executor().submit(escutaCliente);
                 configBkp.setLblAvisoServidor("");
                 estadoServidor = true;
                 gravarServidorLog.gravarLogInformation(Acoes.SERVIDOR_INICIADO_COM_SUCESSO, configBkp);
@@ -86,9 +84,7 @@ public class Configuracao {
                 }
             }
         };
-        th = new Thread(rn);
-        th.setName("tempoServOnline");
-        th.start();
+        configBkp.executor().submit(rn);
         configBkp.setServidorParado("");
         configBkp.setServidorBytesEnviados("");
         configBkp.setServidorBytesRecebido("");

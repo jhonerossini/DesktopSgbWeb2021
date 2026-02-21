@@ -303,7 +303,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="192.168.0.104"/>
+                <Property name="text" type="java.lang.String" value="localhost"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblArqPorta">
@@ -316,6 +316,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="21"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblArqUsuario">
@@ -328,7 +329,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="debian"/>
+                <Property name="text" type="java.lang.String" value="anonymous"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblArqSenha">
@@ -341,7 +342,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="debian"/>
+                <Property name="text" type="java.lang.String" value="anonymous"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnArqConectar">

@@ -42,7 +42,7 @@ public class Autenticar extends javax.swing.JFrame {
 
         lbl_senha.setText("Senha:");
 
-        txt_usuario.setText("Jhone");
+        txt_usuario.setText("Teste");
 
         pass_senha.setText("123");
 

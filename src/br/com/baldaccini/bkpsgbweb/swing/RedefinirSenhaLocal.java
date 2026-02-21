@@ -10,9 +10,7 @@ import br.com.baldaccini.bkpsgbweb.redefinirsenha.RedefinirSenhaEmail;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import br.com.baldaccini.bkpsgbweb.util.Criptografia;
-import br.com.baldaccini.bkpsgbweb.util.Util;
-import br.com.baldaccini.bkpsgbweb.xml.LoginXML;
-import org.jdom2.JDOMException;
+import br.com.baldaccini.bkpsgbweb.json.LoginConfig;
 
 /**
  *
@@ -137,11 +135,11 @@ public class RedefinirSenhaLocal extends javax.swing.JFrame {
 
     private void btnAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarSenhaActionPerformed
         if ((!String.valueOf(passSenhaAtual.getPassword()).equals("") && !String.valueOf(passConfNovaSenha.getPassword()).equals("")) && String.valueOf(passNovaSenha.getPassword()).equals(String.valueOf(passConfNovaSenha.getPassword()))) {
-            LoginXML loginXML = new LoginXML();
-            if (loginXML.lerLogin().getPass().equals(Criptografia.encrypt(String.valueOf(passSenhaAtual.getPassword()), loginXML.lerLogin().getUsuario()))) {
+            LoginConfig loginConfig = new LoginConfig();
+            if (loginConfig.lerLogin().getPass().equals(Criptografia.encrypt(String.valueOf(passSenhaAtual.getPassword()), loginConfig.lerLogin().getUsuario()))) {
                 try {
                     if (!String.valueOf(passSenhaAtual.getPassword()).equals(String.valueOf(passNovaSenha.getPassword()))) {
-                        if (loginXML.alterar(Criptografia.encrypt(String.valueOf(passNovaSenha.getPassword()), loginXML.lerLogin().getUsuario()))) {
+                        if (loginConfig.alterar(Criptografia.encrypt(String.valueOf(passNovaSenha.getPassword()), loginConfig.lerLogin().getUsuario()))) {
                             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
                             this.dispose();
                         } else {
@@ -166,8 +164,8 @@ public class RedefinirSenhaLocal extends javax.swing.JFrame {
     private void btnEnviarSenhaEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarSenhaEmailActionPerformed
         try {
             new RedefinirSenhaEmail().dadosEmail();
-        } catch (JDOMException | IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
+        } catch (Exception ex) {
+            System.getLogger(RedefinirSenhaLocal.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }//GEN-LAST:event_btnEnviarSenhaEmailActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

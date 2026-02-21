@@ -43,6 +43,8 @@ public class BackupArquivo implements Serializable {
     private String senha;
     private String modoConexao;
     private String ftpDestino;
+    
+    public BackupArquivo(){}
 
     /**
      * @return the dataCriacao
